@@ -1,5 +1,5 @@
 # Cache and logs (Symfony2)
-/app/cache/*
+/app/*
 /app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
@@ -25,6 +25,8 @@
 # Assets and user uploads
 /web/bundles/
 /web/uploads/
+/web/assets/admin/
+/web/assets/global/
 
 # PHPUnit
 /app/phpunit.xml
@@ -82,3 +84,15 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+
+kassab.sublime-project
+kassab.sublime-workspace
+/web/.htaccess
+/src/.htaccess
+composer.json
+composer.lock
+/web/app.php
+/web/app_dev.php
+/web/rebots.txt
+/web/favicon.ico

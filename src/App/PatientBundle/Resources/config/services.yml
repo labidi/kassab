@@ -1,0 +1,4 @@
+services:
+#    app_patient.example:
+#        class: App\PatientBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
