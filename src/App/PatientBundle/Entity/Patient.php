@@ -23,6 +23,16 @@ class Patient
 
 
     /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $name;
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $age;
+
+
+    /**
      * Get id
      *
      * @return integer
