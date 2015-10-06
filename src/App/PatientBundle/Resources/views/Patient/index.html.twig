@@ -7,6 +7,78 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Age</th>
+                <th>Num_dossier</th>
+                <th>Diagnostic</th>
+                <th>Intervention</th>
+                <th>Service</th>
+                <th>Chirurgien</th>
+                <th>Date</th>
+                <th>Medecin_ar</th>
+                <th>Diabete</th>
+                <th>Diabete_depuis</th>
+                <th>Diabete_complications</th>
+                <th>Diabete_traitement</th>
+                <th>Hta</th>
+                <th>Hta_depuis</th>
+                <th>Hta_complications</th>
+                <th>Hta_traitement</th>
+                <th>Coronarien</th>
+                <th>Coronarien_depuis</th>
+                <th>Coronarien_complications</th>
+                <th>Coronarien_traitement</th>
+                <th>Coronarien_evolution</th>
+                <th>Bpco</th>
+                <th>Bpco_depuis</th>
+                <th>Bpco_stade</th>
+                <th>Bpco_traitement</th>
+                <th>Atcd_autres</th>
+                <th>Atcd_chirurgicaux</th>
+                <th>Atcd_transfusionnel</th>
+                <th>Rai_atcd_transfusionnel</th>
+                <th>Allergies</th>
+                <th>Gravite</th>
+                <th>Tabac</th>
+                <th>P_a</th>
+                <th>Alcool</th>
+                <th>Poids</th>
+                <th>Taille</th>
+                <th>Fc</th>
+                <th>Ta</th>
+                <th>Spo2</th>
+                <th>Dyspne_d_effort</th>
+                <th>Orthopnee</th>
+                <th>Dyspnee_paroxysthique_nocturne</th>
+                <th>Angor</th>
+                <th>Omi</th>
+                <th>Turjuscence_jugulaire</th>
+                <th>Ascite</th>
+                <th>Varices</th>
+                <th>Auscultation_cardiaque</th>
+                <th>Auscultation_pulmonaire</th>
+                <th>Autres_interrogation_examen</th>
+                <th>Mallampati</th>
+                <th>Ob</th>
+                <th>Dtm</th>
+                <th>Rachis</th>
+                <th>Sous_interrogatoir_autres</th>
+                <th>Asa</th>
+                <th>Nyh</th>
+                <th>Lee</th>
+                <th>Terrain</th>
+                <th>Ecg</th>
+                <th>Rx_thorax</th>
+                <th>Echo_coeur</th>
+                <th>Autres_examen</th>
+                <th>Avis_specialise</th>
+                <th>Recommandations</th>
+                <th>Technique_anesthesique</th>
+                <th>Protocole_anesthesique</th>
+                <th>Protocole_analgestique</th>
+                <th>Epargne_sanguine</th>
+                <th>Premedication</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -14,6 +86,78 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('patient_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.prenom }}</td>
+                <td>{{ entity.age }}</td>
+                <td>{{ entity.numdossier }}</td>
+                <td>{{ entity.diagnostic }}</td>
+                <td>{{ entity.intervention }}</td>
+                <td>{{ entity.service }}</td>
+                <td>{{ entity.chirurgien }}</td>
+                <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.medecinar }}</td>
+                <td>{{ entity.diabete }}</td>
+                <td>{{ entity.diabetedepuis }}</td>
+                <td>{{ entity.diabetecomplications }}</td>
+                <td>{{ entity.diabetetraitement }}</td>
+                <td>{{ entity.hta }}</td>
+                <td>{{ entity.htadepuis }}</td>
+                <td>{{ entity.htacomplications }}</td>
+                <td>{{ entity.htatraitement }}</td>
+                <td>{{ entity.coronarien }}</td>
+                <td>{{ entity.coronariendepuis }}</td>
+                <td>{{ entity.coronariencomplications }}</td>
+                <td>{{ entity.coronarientraitement }}</td>
+                <td>{{ entity.coronarienevolution }}</td>
+                <td>{{ entity.bpco }}</td>
+                <td>{{ entity.bpcodepuis }}</td>
+                <td>{{ entity.bpcostade }}</td>
+                <td>{{ entity.bpcotraitement }}</td>
+                <td>{{ entity.atcdautres }}</td>
+                <td>{{ entity.atcdchirurgicaux }}</td>
+                <td>{{ entity.atcdtransfusionnel }}</td>
+                <td>{{ entity.raiatcdtransfusionnel }}</td>
+                <td>{{ entity.allergies }}</td>
+                <td>{{ entity.gravite }}</td>
+                <td>{{ entity.tabac }}</td>
+                <td>{{ entity.pa }}</td>
+                <td>{{ entity.alcool }}</td>
+                <td>{{ entity.poids }}</td>
+                <td>{{ entity.taille }}</td>
+                <td>{{ entity.fc }}</td>
+                <td>{{ entity.ta }}</td>
+                <td>{{ entity.spo2 }}</td>
+                <td>{{ entity.dyspnedeffort }}</td>
+                <td>{{ entity.orthopnee }}</td>
+                <td>{{ entity.dyspneeparoxysthiquenocturne }}</td>
+                <td>{{ entity.angor }}</td>
+                <td>{{ entity.omi }}</td>
+                <td>{{ entity.turjuscencejugulaire }}</td>
+                <td>{{ entity.ascite }}</td>
+                <td>{{ entity.varices }}</td>
+                <td>{{ entity.auscultationcardiaque }}</td>
+                <td>{{ entity.auscultationpulmonaire }}</td>
+                <td>{{ entity.autresinterrogationexamen }}</td>
+                <td>{{ entity.mallampati }}</td>
+                <td>{{ entity.ob }}</td>
+                <td>{{ entity.dtm }}</td>
+                <td>{{ entity.rachis }}</td>
+                <td>{{ entity.sousinterrogatoirautres }}</td>
+                <td>{{ entity.asa }}</td>
+                <td>{{ entity.nyh }}</td>
+                <td>{{ entity.lee }}</td>
+                <td>{{ entity.terrain }}</td>
+                <td>{{ entity.ecg }}</td>
+                <td>{{ entity.rxthorax }}</td>
+                <td>{{ entity.echocoeur }}</td>
+                <td>{{ entity.autresexamen }}</td>
+                <td>{{ entity.avisspecialise }}</td>
+                <td>{{ entity.recommandations }}</td>
+                <td>{{ entity.techniqueanesthesique }}</td>
+                <td>{{ entity.protocoleanesthesique }}</td>
+                <td>{{ entity.protocoleanalgestique }}</td>
+                <td>{{ entity.epargnesanguine }}</td>
+                <td>{{ entity.premedication }}</td>
                 <td>
                 <ul>
                     <li>

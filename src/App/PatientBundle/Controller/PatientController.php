@@ -4,16 +4,13 @@ namespace App\PatientBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
 use App\PatientBundle\Entity\Patient;
 use App\PatientBundle\Form\PatientType;
 
 /**
  * Patient controller.
  *
- * @Route("/patient")
  */
 class PatientController extends Controller
 {
@@ -21,9 +18,6 @@ class PatientController extends Controller
     /**
      * Lists all Patient entities.
      *
-     * @Route("/", name="patient")
-     * @Method("GET")
-     * @Template()
      */
     public function indexAction()
     {
@@ -31,16 +25,13 @@ class PatientController extends Controller
 
         $entities = $em->getRepository('AppPatientBundle:Patient')->findAll();
 
-        return array(
+        return $this->render('AppPatientBundle:Patient:index.html.twig', array(
             'entities' => $entities,
-        );
+        ));
     }
     /**
      * Creates a new Patient entity.
      *
-     * @Route("/", name="patient_create")
-     * @Method("POST")
-     * @Template("AppPatientBundle:Patient:new.html.twig")
      */
     public function createAction(Request $request)
     {
@@ -56,10 +47,10 @@ class PatientController extends Controller
             return $this->redirect($this->generateUrl('patient_show', array('id' => $entity->getId())));
         }
 
-        return array(
+        return $this->render('AppPatientBundle:Patient:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        );
+        ));
     }
 
     /**
@@ -84,27 +75,21 @@ class PatientController extends Controller
     /**
      * Displays a form to create a new Patient entity.
      *
-     * @Route("/new", name="patient_new")
-     * @Method("GET")
-     * @Template()
      */
     public function newAction()
     {
         $entity = new Patient();
         $form   = $this->createCreateForm($entity);
 
-        return array(
+        return $this->render('AppPatientBundle:Patient:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        );
+        ));
     }
 
     /**
      * Finds and displays a Patient entity.
      *
-     * @Route("/{id}", name="patient_show")
-     * @Method("GET")
-     * @Template()
      */
     public function showAction($id)
     {
@@ -118,18 +103,15 @@ class PatientController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('AppPatientBundle:Patient:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
      * Displays a form to edit an existing Patient entity.
      *
-     * @Route("/{id}/edit", name="patient_edit")
-     * @Method("GET")
-     * @Template()
      */
     public function editAction($id)
     {
@@ -144,11 +126,11 @@ class PatientController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('AppPatientBundle:Patient:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
@@ -172,9 +154,6 @@ class PatientController extends Controller
     /**
      * Edits an existing Patient entity.
      *
-     * @Route("/{id}", name="patient_update")
-     * @Method("PUT")
-     * @Template("AppPatientBundle:Patient:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
@@ -196,17 +175,15 @@ class PatientController extends Controller
             return $this->redirect($this->generateUrl('patient_edit', array('id' => $id)));
         }
 
-        return array(
+        return $this->render('AppPatientBundle:Patient:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
     /**
      * Deletes a Patient entity.
      *
-     * @Route("/{id}", name="patient_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
     {
