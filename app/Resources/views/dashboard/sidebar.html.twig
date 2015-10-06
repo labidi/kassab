@@ -1,0 +1,120 @@
+<div class="page-sidebar-wrapper">
+	saddem
+		<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+		<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+		<div class="page-sidebar navbar-collapse collapse">
+			<!-- BEGIN SIDEBAR MENU -->
+			<ul class="page-sidebar-menu " data-auto-scroll="true" data-slide-speed="200">
+				<!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+				<li class="sidebar-toggler-wrapper">
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					<div class="sidebar-toggler">
+					</div>
+					<!-- END SIDEBAR TOGGLER BUTTON -->
+				</li>
+				
+				<!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+				
+				<li class="active">
+					<a href="javascript:;">
+					<i class="fa fa-file-word-o"></i>
+					<span class="title">
+						Gestion des patients
+					</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li class="">
+							<a href="#">
+								<i class="fa fa-plus"></i>
+								Nouveau
+							</a>
+						</li>
+						<li class="">
+							<a href="#">
+								<i class="fa fa-align-justify"></i>
+								Liste des patients
+							</a>
+						</li>
+					</ul>
+				</li>
+					
+
+				{# <li class="start {% if (app.request.get('_route') == 'jms_translation_index' )%} active {% endif %} ">
+					<a href="{{path('jms_translation_index')}}">
+					<i class="fa fa-globe"></i>
+					<span class="title">Localisation</span>
+					<span class="selected"></span>
+					</a>
+				</li> #}
+
+				{# <li class="{% if 'site' in app.request.get('_route') %} active {% endif %}">
+					<a href="javascript:;">
+					<i class="fa  fa-globe"></i>
+					<span class="title">Gestion des sites</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li class="{% if (app.request.get('_route') == 'internet_factory_site_new' )%} active {% endif %}">
+							<a href="{{path('internet_factory_site_new')}}">
+								<i class="fa fa-plus"></i>
+								Nouveau site
+							</a>
+						</li>
+						<li class="{% if (app.request.get('_route') == 'internet_factory_site_index' )%} active {% endif %}">
+							<a href="{{ path('internet_factory_site_index') }}">
+								<i class="fa fa-align-justify"></i>
+								Liste des sites
+							</a>
+						</li>
+					</ul>
+				</li> #}
+				{# {% if is_granted('ROLE_ADMIN') %}
+				<li class="{% if 'pack' in app.request.get('_route') %} active {% endif %}">
+					<a href="javascript:;">
+					<i class="fa fa-briefcase"></i>
+					<span class="title">Gestion des packs</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="{{path('internet_factory_pack_new')}}"> 
+								<i class="fa fa-plus "></i>
+								Nouveau pack</a>
+						</li>
+						<li>
+							<a href="{{path('internet_factory_pack_index')}}">
+								<i class="fa fa-align-justify"></i>
+								Liste de packs
+							</a>
+						</li>
+					</ul>
+				</li>
+				{% endif %}
+				
+				{% if is_granted('ROLE_ADMIN') %}
+				<li class="{% if 'employee' in app.request.get('_route') %} active {% endif %}">
+					<a href="javascript:;">
+					<i class="fa fa-users"></i>
+					<span class="title">Gestion des employés</span>
+					<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="{{path('internet_factory_user_employee_new')}}"> 
+								<i class="fa fa-plus "></i>
+								Nouveau</a>
+						</li>
+						<li>
+							<a href="{{path('internet_factory_user_employee_index')}}">
+								<i class="fa fa-align-justify"></i>
+								Liste des employés
+							</a>
+						</li>
+					</ul>
+				</li>
+				{% endif %} #}
+			</ul>
+			<!-- END SIDEBAR MENU -->
+		</div>
+	</div>
