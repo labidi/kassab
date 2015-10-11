@@ -1,0 +1,43 @@
+app_user_index:
+    path:     /
+    defaults: { _controller: "AppUserBundle:User:index" }
+app_user_favorites:
+    path:     /favorites
+    defaults: { _controller: "AppUserBundle:User:favorites" }
+
+app_user_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppUserBundle:User:show" }
+
+app_user_summary:
+    path:     /{id}/summary
+    defaults: { _controller: "AppUserBundle:User:summary" }
+
+app_user_new:
+    path:     /new
+    defaults: { _controller: "AppUserBundle:User:new" }
+
+app_user_create:
+    path:     /create
+    defaults: { _controller: "AppUserBundle:User:create" }
+    requirements: { _method: post }
+
+app_user_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppUserBundle:User:edit" }
+
+app_user_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppUserBundle:User:update" }
+    requirements: { _method: post|put }
+
+
+app_user_update_password:
+    path:     /{id}/updatepassword
+    defaults: { _controller: "AppUserBundle:User:updatePassword" }
+    requirements: { _method: post|put }
+
+app_user_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppUserBundle:User:delete" }
+    requirements: { _method: post|delete }

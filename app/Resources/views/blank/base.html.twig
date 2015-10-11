@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %} {% endblock %}</title>
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Pathway+Gothic+One|PT+Sans+Narrow:400+700|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css"> 
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/plugins/font-awesome/css/font-awesome.min.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/plugins/simple-line-icons/simple-line-icons.min.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/plugins/bootstrap/css/bootstrap.min.css') }}">
+            {# <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/plugins/uniform/css/uniform.default.css') }}"> #}
+
+
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/components.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/plugins.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/layout/css/layout.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/layout/css/themes/default.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/layout/css/custom.css') }}">
+          
+
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body classs="page-header-fixed page-quick-sidebar-over-content page-full-width">
+
+        <div class="page-container">
+        
+        <div class="page-content-wrapper">
+            <div class="page-content  user-page-content ">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="page-title">{{ block('title') }}</h3>
+                    </div>
+                </div>
+
+
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+        {% block javascripts %}
+            
+            <script src="{{ asset('assets/global/plugins/jquery-1.11.0.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/global/plugins/jquery-migrate-1.2.1.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/global/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/global/plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/global/plugins/jquery.cokie.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/global/plugins/bootbox/bootbox.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/global/plugins/uniform/jquery.uniform.min.js') }}" type="text/javascript"></script>
+          
+
+            <script src="{{ asset('assets/global/scripts/metronic.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/admin/layout/scripts/layout.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/admin/layout/scripts/quick-sidebar.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/admin/pages/scripts/index.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/admin/pages/scripts/tasks.js') }}" type="text/javascript"></script>
+
+            <script>
+            jQuery(document).ready(function() {    
+                Metronic.init(); // init metronic core components
+                Layout.init(); // init current layout
+                QuickSidebar.init(); // init quick sidebar
+                Index.init();
+                
+
+                $('.confirmation').on('click', function () {
+                    return confirm('Êtes-vous sûr?');
+                });
+
+            });
+            </script>
+        {% endblock %}
+    </body>
+</html>

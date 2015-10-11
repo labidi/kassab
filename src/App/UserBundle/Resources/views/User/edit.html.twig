@@ -1,0 +1,103 @@
+{% extends '::dashboard/base.html.twig' %}
+
+{% block title %} Modifier : {{entity}} {% endblock %}
+	
+{% block stylesheets %} 
+    {{parent()}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/pages/css/profile.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/global/plugins/bootstrap-datepicker/css/datepicker3.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css')}}"/>
+{% endblock %}
+
+{% block breadcrumb %} 
+<div class="page-bar">
+	<ul class="page-breadcrumb">
+		<li>
+			<i class="fa fa-home"></i>
+			<a href="{{path('app_user_index')}}">Liste des utilisateurs</a>
+			<i class="fa fa-angle-right"></i>
+		</li>
+		<li>
+			<a href="{{path('app_user_edit',{id:entity.id})}}">Modifier : {{entity}} </a>
+		</li>
+	</ul>
+</div>
+{% endblock %}
+
+
+{% block body %}
+
+{{ form_start(edit_form,{'attr':{'class':'form-horizontal'}}) }}
+    <div class="form-body">
+    	<h4 class="form-section">Informations personnelles</h4>
+        <hr>
+    	<div class="row">
+            <div class="col-md-12">
+                {{form_row(edit_form.first_name)}}
+                {{form_row(edit_form.last_name)}}
+        		{{form_row(edit_form.email)}}
+                {{form_row(edit_form.roles)}}
+            </div>
+    	</div>
+    </div>
+    <div class="form-actions">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        {{ form_row(edit_form.submit, { 'label': 'Modifier','attr':{'class':'btn green'}}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{form_end(edit_form)}}
+
+{{ form_start(edit_password_form,{'attr':{'class':'form-horizontal'}}) }}
+
+	<div class="form-body">
+    	<h4 class="form-section">Modifier le Mot de passe</h4>
+        <hr>
+	    <div class="row">
+	        <div class="col-md-12">
+	    		{{form_row(edit_password_form.plainPassword.first)}}
+	            {{form_row(edit_password_form.plainPassword.second)}}
+	        </div>
+		</div>
+	</div>
+
+	<div class="form-actions">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        {{ form_row(edit_password_form.submit, { 'label': 'Modifier le mot de passe','attr':{'class':'btn green'}}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{form_end(edit_password_form)}}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{parent()}}
+     <script type="text/javascript" src="{{asset('assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            
+            $('#app_userbundle_franchise_expiresAt').datepicker({
+                rtl: Metronic.isRTL(),
+                orientation: "left",
+                autoclose: true,
+                format: 'yyyy-mm-dd',
+            });
+        })     
+</script> 
+{% endblock %}
+

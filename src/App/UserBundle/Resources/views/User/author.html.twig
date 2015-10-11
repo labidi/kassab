@@ -1,0 +1,82 @@
+<div class="portlet light bg-inverse bordered author-info">
+    <div class="portlet-title">
+        <div class="caption"><i class="fa fa-user"></i><a href="{{path('app_author_show',{'id':author.id})}}">{{author}}</a></div>
+        <div class="actions">
+            <a href="{{path('app_order_new',{'author_id':author.id})}}" class="btn btn-circle btn-default btn-sm">
+                                <i class="fa fa-send"></i> {{"actions.directOrder"|trans}}  
+            </a>
+            <div class="btn-group">
+                <a class="btn btn-circle btn-default btn-sm" href="#" data-toggle="dropdown">
+                <i class="fa fa-user"></i> User <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                    <li>
+                        <a href="{{path('app_author_show',{'id':author.id})}}">
+                                <i class="fa fa-eye"></i> {{"actions.preview"|trans}}  
+                        </a> 
+                    </li>
+                    {# <li>
+                        <a class="ajax-action" data-url="{{path('app_admin_favorite_add',{'author_id':author.id})}}">
+                            <i class="fa fa-star"></i> {{"actions.addFavorite"|trans}} 
+                        </a>
+                    </li> #}
+                    {%  if author.isEnabled %}
+                    <li>
+                        <a class="ajax-action" data-url="{{path('app_admin_author_disable',{'author_id':author.id})}}">
+                            <i class="fa fa-star"></i> {{"actions.disable"|trans}} 
+                        </a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a class="ajax-action" data-url="{{path('app_admin_author_enable',{'author_id':author.id})}}">
+                            <i class="fa fa-star"></i> {{"actions.enable"|trans}} 
+                        </a>
+                    </li>
+                    {% endif %}
+                   {#  <li>
+                        <a href="#">
+                        <i class="fa fa-letter"></i> {{"actions.sendMessage"|trans}}  </a>
+                    </li> #}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+            <{# div class="col-sm-3 col-xs-3 col-md-4">
+                <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+            </div> #}
+            <div class="col-sm-12 col-md-12">
+                <dl>
+                    <dd><i class="fa fa-envelope"></i> {{author.email}}</dd> 
+                    <dd><i class="fa fa-building"></i> {{ author.job|truncate(50) }} </dd>
+                    {# <dd>
+                        <ul class="stars list-inline">
+                            {% for i in 1 .. author.ratings   %}
+                                <li><i class="fa fa-star"></i></li>
+                            {% endfor %}
+                            {% if author.ratings < 5 %}
+                                {% for i in author.ratings .. 4   %}
+                                    <li><i class="fa fa-star disabled"></i></li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </dd> #}
+                    {# <dd>
+                        {% for spec in author.specialties %}
+                            {{spec}}
+                        {% endfor %}
+                    </dd> #}
+                    {# <dd>
+                        {% if author.isConfirmed == false %}
+                            <span title="{{'author.confirmed'|trans}}">
+                                <i class="fa fa-check-circle-o fa-3"></i>
+                            </span>
+                        {% endif %}
+                    </dd> #}
+                </dl>
+                <!-- Split button -->
+            </div>
+        </div>
+    </div>
+</div>

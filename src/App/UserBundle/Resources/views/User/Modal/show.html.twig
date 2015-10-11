@@ -1,0 +1,46 @@
+{% extends '::modal/base.html.twig' %}
+{% block title -%} {{author}} {% endblock %}
+
+{% block body -%}
+<div class="row">
+    <div class="col-md-12">
+        <div class="sale-summary">
+            <ul class="list-unstyled">
+                <li>
+                    <span class="sale-info">
+                    Nombre de commandes
+                    </span>
+                    <span class="sale-num">
+                    {{stats.orders}} </span>
+                </li>
+                <li>
+                    <span class="sale-info">
+                    Nombre d'articles redigées
+                    </span>
+                    <span class="sale-num">
+                    {{stats.validatedArticles}} </span>
+                </li>
+                <li>
+                    <span class="sale-info">
+                    Nombre d'articles en cours
+                    </span>
+                    <span class="sale-num">
+                    {{stats.pendingArticles}} </span>
+                </li>
+                <li>
+                    <span class="sale-info">
+                    Nombre total d'articles
+                    </span>
+                    <span class="sale-num">
+                    {{stats.totalArticles}} </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block actions -%}
+   
+    <button type="button" data-dismiss="modal" class="btn purple">Fermer</button>
+{% endblock %}

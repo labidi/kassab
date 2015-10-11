@@ -1,0 +1,9 @@
+{% block form_row -%}
+    <div class="form-group {% if errors|length > 0 -%} has-error {% endif %}">
+        {{- form_label(form) -}}
+        <div class="col-md-9">
+        	{{- form_widget(form) -}}
+        	{{- form_errors(form) -}}
+   		</div>
+    </div>
+{%- endblock form_row %}

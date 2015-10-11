@@ -1,0 +1,11 @@
+app_admin_favorite_add:
+    path:     /admin/add/favorite/{author_id}
+    defaults: { _controller: "AppUserBundle:Admin:addFavorite" }
+
+app_admin_author_enable:
+    path:     /admin/enable/author/{author_id}
+    defaults: { _controller: "AppUserBundle:Admin:enableAuhtor" }
+
+app_admin_author_disable:
+    path:     /admin/disable/author/{author_id}
+    defaults: { _controller: "AppUserBundle:Admin:disableAuhtor" }

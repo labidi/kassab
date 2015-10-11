@@ -1,0 +1,23 @@
+{% extends "::blank/base.html.twig" %}
+
+{% block body %}
+	<div class="col-md-12 page-500">
+		<div class=" number">
+		 	403
+		</div>
+		<div class=" details">
+			<h3>Oops! Vous n'etes pas autorisé.</h3>
+			<p>
+				<a href="{{path('fos_user_security_logout')}}">
+                    <i class="fa fa-key"></i> Deconnecter 
+				</a>
+			</p>
+		</div>
+	</div>
+
+{% endblock %}
+
+
+
+
+

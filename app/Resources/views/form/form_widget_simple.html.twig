@@ -1,0 +1,103 @@
+{% block form_widget_simple -%}
+    {%- set type = type|default('text') -%}
+
+    {% if type == 'date' or type == 'time' %}
+        {%- set type = 'text' -%}
+    {% endif %}
+
+    <input  type="{{ type }}" {{ block('widget_attributes') }}  {% if "class" not in attr %} class="form-control" {% endif %} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+{%- endblock form_widget_simple %}
+
+{% block widget_attributes -%}
+    id="{{ id }}" name="{{ full_name }}"{% if read_only %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if max_length %} {# maxlength="{{ max_length }}" #}{% endif %}{% if pattern %} pattern="{{ pattern }}"{% endif %}
+    {%- for attrname, attrvalue in attr %} 
+        {% if attrname in ['placeholder', 'title'] %}
+            {{ attrname }}="{{ attrvalue|trans({}, translation_domain) }}"
+        {% elseif attrname == "class" %}
+            {{ attrname }}="{{ attrvalue }}"
+        {% else %}
+            {{ attrname }}="{{ attrvalue }}"
+        {% endif %}
+    {% endfor %}
+   
+
+{%- endblock widget_attributes %}
+
+{% block choice_widget_collapsed -%}
+    {% if required and empty_value is none and not empty_value_in_choices and not multiple -%}
+        {% set required = false %}
+    {%- endif -%}
+    <select {{ block('widget_attributes') }} class="form-control"  {% if multiple %} multiple="multiple"{% endif %}>
+        {% if empty_value is not none -%}
+            <option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ empty_value|trans({}, translation_domain) }}</option>
+        {%- endif %}
+        {%- if preferred_choices|length > 0 -%}
+            {% set options = preferred_choices %}
+            {{- block('choice_widget_options') -}}
+            {% if choices|length > 0 and separator is not none -%}
+                <option disabled="disabled">{{ separator }}</option>
+            {%- endif %}
+        {%- endif -%}
+        {% set options = choices -%}
+        {{- block('choice_widget_options') -}}
+    </select>
+{%- endblock choice_widget_collapsed %}
+
+{% block form_widget -%}
+	    {% if compound %}
+	        {{- block('form_widget_compound') -}}
+	    {% else %}
+	        {{- block('form_widget_simple') -}}
+	    {% endif %}
+{%- endblock form_widget %}
+
+
+{% block textarea_widget -%}
+    <textarea {{ block('widget_attributes') }} class="form-control">{{ value }}</textarea>
+{%- endblock textarea_widget %}
+
+
+{% block form_start -%}
+    {% set method = method|upper %}
+    {%- if method in ["GET", "POST"] -%}
+        {% set form_method = method %}
+    {%- else -%}
+        {% set form_method = "POST" %}
+    {%- endif -%}
+    <form method="{{ form_method|lower }}" action="{{ action }}"{% for attrname, attrvalue in attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}{% if multipart %} enctype="multipart/form-data"{% endif %}>
+        <div class="form-body">
+    {%- if form_method != method -%}
+        <input type="hidden" name="_method" value="{{ method }}" />
+    {%- endif %}
+{%- endblock form_start %}
+
+{% block form_end -%}
+    {% if not render_rest is defined or render_rest -%}
+        {{ form_rest(form) }}
+    {%- endif -%}
+        </div>
+    </form>
+{%- endblock form_end %}
+
+
+{% block datetime_widget -%}
+    {% if widget == 'single_text' %}
+        {{- block('form_widget_simple') -}}
+    {% else -%}
+        <div {{ block('widget_container_attributes') }}>
+            {{- form_errors(form.date) -}}
+            {{- form_errors(form.time) -}}
+            {{- form_widget(form.date) -}}
+            {{- form_widget(form.time) -}}
+        </div>
+    {%- endif %}
+{%- endblock datetime_widget %}
+
+
+
+{% block checkbox_widget -%}
+
+    <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+
+
+{%- endblock checkbox_widget %}

@@ -1,0 +1,7 @@
+{% for author in authors %}
+	<li>
+		<a href="{{ path('app_order_new',{'author_id':author[0].id}) }}">
+			<i class="fa fa-user"></i>
+				{{author[0]}} (  {{author[1]}} )</a>	
+	</li>
+{% endfor %}

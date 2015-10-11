@@ -1,0 +1,37 @@
+app_author_index:
+    path:     /
+    defaults: { _controller: "AppUserBundle:Author:index" }
+app_author_favorites:
+    path:     /favorites
+    defaults: { _controller: "AppUserBundle:Author:favorites" }
+
+app_author_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppUserBundle:Author:show" }
+
+app_author_summary:
+    path:     /{id}/summary
+    defaults: { _controller: "AppUserBundle:Author:summary" }
+
+app_author_new:
+    path:     /new
+    defaults: { _controller: "AppUserBundle:Author:new" }
+
+app_author_create:
+    path:     /create
+    defaults: { _controller: "AppUserBundle:Author:create" }
+    requirements: { _method: post }
+
+app_author_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppUserBundle:Author:edit" }
+
+app_author_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppUserBundle:Author:update" }
+    requirements: { _method: post|put }
+
+app_author_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppUserBundle:Author:delete" }
+    requirements: { _method: post|delete }

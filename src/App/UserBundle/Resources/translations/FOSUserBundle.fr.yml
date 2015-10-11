@@ -1,0 +1,27 @@
+user:
+    fullname: Nom et Prénom
+    street: Rue
+    codePostal : Code Potale
+    city: Ville
+    country: Pays
+    company: Société
+    job: Profession
+    hours: nombre des heures
+    phone: Telephone
+    cgu: J'accepte les Conditions d'utilisation et Politique de confidentialité
+    lastName: Nom
+    firstName : Prénom
+    email : E-mail
+    username : Nom d'utilisateur
+    password : Mot de passe
+    password_confirmation : Confirmation de mot de passe*
+    specialties : Spécialités
+
+# Security
+security:
+    login:
+        email: Adresse Email
+        username: "Nom d'utilisateur :"
+        password: "Mot de passe :"
+        remember_me: Se souvenir de moi
+        submit: Connexion

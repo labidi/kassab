@@ -1,0 +1,146 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="register">
+
+<div class="col-md-12">
+	<h1>Inscription auteur	</h1>
+	<hr>
+	<p class="text-justify">Pour votre inscription, nous nécessitons les données suivantes qui ne seront aucunement transmises à un tiers. Pour plus d'informations concernant le respect de vos données personnelles, allez sur protection des données.</p>
+</div>
+
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="register-form">
+
+	<div class="col-md-6">
+	<h3>Informations personnelles </h3>
+
+	<div class="form-group {% if form.firstName.vars.errors|length %} has-error {% endif %}">
+		<div class="input-icon">
+			<i class="fa fa-font"></i>
+			{{ form_widget(form.firstName,{'attr':{'class':'form-control placeholder-no-fix','placeholder':'user.firstName'}}) }}
+		</div>
+		{{ form_errors(form.firstName) }}
+	</div>
+	
+	<div class="form-group {% if form.lastName.vars.errors|length %} has-error {% endif %}">
+		<div class="input-icon">
+			<i class="fa fa-font"></i>
+			{{ form_widget(form.lastName,{'attr':{'class':'form-control placeholder-no-fix','placeholder':'user.lastName'}}) }}
+		</div>
+		{{ form_errors(form.lastName) }}
+	</div>
+
+	
+	<div class="form-group {% if form.email.vars.errors|length %} has-error {% endif %}">
+		<div class="input-icon">
+			<i class="fa fa-envelope"></i>
+			{{ form_widget(form.email,{'attr':{'class':'form-control placeholder-no-fix','placeholder':'user.email'}}) }}
+		</div>
+		{{ form_errors(form.email) }}
+	</div>
+
+
+	<div class="form-group {% if form.phone.vars.errors|length %} has-error {% endif %}">
+		<div class="input-icon">
+			<i class="fa fa-phone"></i>
+			{{ form_widget(form.phone,{'attr':{'class':'form-control placeholder-no-fix','placeholder':'user.phone'}}) }}
+		</div>
+		{{ form_errors(form.phone) }}
+	</div>
+
+	<div class="form-group {% if form.job.vars.errors|length %} has-error {% endif %}">
+		<div class="input-icon">
+			<i class="fa fa-building"></i>
+			{{ form_widget(form.job,{'attr':{'class':'form-control placeholder-no-fix','placeholder':'user.job'}}) }}
+		</div>
+		{{ form_errors(form.job) }}
+	</div>
+
+	<h3 class="form-section">Adresse</h3>
+
+	<div class="form-group {% if form.street.vars.errors|length %} has-error {% endif %}">
+		<div class="input-icon">
+			<i class="fa fa-map-marker"></i>
+			{{ form_widget(form.street,{'attr':{'class':'form-control placeholder-no-fix','placeholder':'user.street'}}) }}
+		</div>
+		{{ form_errors(form.street) }}
+	</div>
+
+	<div class="form-group {% if form.codePostal.vars.errors|length %} has-error {% endif %}">
+		<div class="input-icon">
+			<i class="fa fa-map-marker"></i>
+			{{ form_widget(form.codePostal,{'attr':{'class':'form-control placeholder-no-fix','placeholder':'user.codePostal'}}) }}
+		</div>
+		{{ form_errors(form.codePostal) }}
+	</div>
+
+	<div class="form-group {% if form.city.vars.errors|length %} has-error {% endif %}">
+		<div class="input-icon">
+			<i class="fa fa-map-marker"></i>
+			{{ form_widget(form.city,{'attr':{'class':'form-control placeholder-no-fix','placeholder':'user.city'}}) }}
+		</div>
+		{{ form_errors(form.city) }}
+	</div>
+
+	<div class="form-group {% if form.country.vars.errors|length %} has-error {% endif %}">
+		<div class="input-icon">
+			<i class="fa fa-map-marker"></i>
+			{{ form_widget(form.country,{'attr':{'class':'form-control placeholder-no-fix','placeholder':'user.country'}}) }}
+		</div>
+		{{ form_errors(form.country) }}
+	</div>
+
+
+	</div>
+	<div class="col-md-6">
+		<h3>{{"user.specialties"|trans}}</h3>
+		<div class="form-group {% if form.specialties.vars.errors|length %} has-error {% endif %}">
+			<div class="input-icon">
+				{{ form_widget(form.specialties,{'attr':{'class':'form-control placeholder-no-fix','placeholder':'user.specialties'}}) }}
+			</div>
+			{{ form_errors(form.specialties) }}
+		</div>
+
+		<h3>Mot de passe</h3>
+
+		<div class="form-group {% if form.plainPassword.first.vars.errors|length %} has-error {% endif %}">
+			<div class="input-icon">
+				<i class="fa fa-lock"></i>
+				{{ form_widget(form.plainPassword.first,{'attr':{'class':'form-control placeholder-no-fix','placeholder':'user.password'}}) }}
+			</div>
+			{{ form_errors(form.plainPassword.first) }}
+		</div>
+
+		<div class="form-group {% if form.plainPassword.second.vars.errors|length %} has-error {% endif %}">
+			<div class="input-icon">
+				<i class="fa fa-lock"></i>
+				{{ form_widget(form.plainPassword.second,{'attr':{'class':'form-control placeholder-no-fix','placeholder':'user.password_confirmation'}}) }}
+			</div>
+			{{ form_errors(form.plainPassword.second) }}
+		</div>
+	</div>
+
+	<div class="col-md-12">
+		<div class="form-group {% if form.cgu.vars.errors|length %} has-error {% endif %}">
+		
+			<label>
+				{{ form_widget(form.cgu,{'attr':{'class':''}}) }} </span>
+				{{ form.cgu.vars.label|trans }}
+			</label>
+			{{ form_errors(form.cgu) }}
+
+
+		</div>
+
+    	
+	</div>
+
+    <div class="form-actions">
+    	<div class="col-md-12">
+			<a id="register-back-btn" href="{{path('fos_user_security_login')}}"  class="btn btn-default"><i class="m-icon-swapleft"></i> Se connecter </a>
+			<button type="submit" id="register-submit-btn" class="btn blue pull-right">{{ 'registration.submit'|trans }} <i class="m-icon-swapright m-icon-white"></i>
+			</button>
+    	</div>
+	</div>
+</div>	
+{{ form_end(form) }}
+
+
