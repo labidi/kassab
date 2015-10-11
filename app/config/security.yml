@@ -1,0 +1,30 @@
+security:
+    access_denied_url:    /accessdenied
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_USER:        ROLE_USER
+        ROLE_DOCTOR:      ROLE_DOCTOR
+        ROLE_MANAGER:     ROLE_MANAGER
+        ROLE_SUPER_ADMIN: ROLE_SUPER_ADMIN
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_provider: security.csrf.token_manager # Use form.csrf_provider instead for Symfony <2.4
+
+            anonymous:    true
+            logout:
+                target: /dashboard
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/dashboard, role: [ROLE_DOCTOR,ROLE_MANAGER,ROLE_SUPER_ADMIN] }

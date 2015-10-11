@@ -1,0 +1,14 @@
+app_patient:
+    resource: "@AppPatientBundle/Resources/config/routing.yml"
+    prefix:   /dashboard/patient/
+
+app_user:
+    resource: "@AppUserBundle/Resources/config/routing.yml"
+    prefix:   /dashboard/
+
+app_bundle:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

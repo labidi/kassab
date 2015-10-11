@@ -6,6 +6,8 @@
 !app/Resources/
 /vendor/*
 
+!app/config/
+
 # Cache and logs (Symfony3)
 /var/cache/*
 /var/logs/*
@@ -14,6 +16,7 @@
 
 # Parameters
 /app/config/parameters.yml
+app/config/parameters.yml.dist
 /app/config/parameters.ini
 
 # Managed by Composer
