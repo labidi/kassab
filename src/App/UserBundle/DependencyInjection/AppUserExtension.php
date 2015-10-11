@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\Loader;
 class AppUserExtension extends Extension
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function load(array $configs, ContainerBuilder $container)
     {

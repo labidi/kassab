@@ -1,3 +1,11 @@
-index:
+app_dashboard_index:
+    path:     /dashboard
+    defaults: { _controller: AppBundle:Dashboard:dashboard }
+
+app_index:
     path:     /
     defaults: { _controller: AppBundle:Dashboard:index }
+
+app_accessdenied:
+    path:     /accessdenied
+    defaults: { _controller: AppBundle:Dashboard:accessdenied }

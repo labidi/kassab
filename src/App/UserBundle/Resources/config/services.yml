@@ -1,4 +1,21 @@
+parameters:
+   app.authentication.handler.login_success_handler.class: App\UserBundle\Handler\LoginSuccessHandler
+
 services:
+    login_success_handler:
+        class:      %app.authentication.handler.login_success_handler.class%
+        arguments:  [@router, @security.context]
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }
 #    app_user.example:
-#        class: App\UserBundle\Example
+#        class: %app_user.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+    app_user.registration.form.type:
+        class: App\UserBundle\Form\Type\RegistrationFormType
+        tags:
+            - { name: form.type, alias: app_user_registration }
+    app_user.event.subscriber:
+        class: App\UserBundle\EventListener\UserListener
+        arguments: ['@session','@doctrine' ]
+        tags:
+            - { name: kernel.event_subscriber, priority: 200}

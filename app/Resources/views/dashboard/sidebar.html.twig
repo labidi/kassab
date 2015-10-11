@@ -1,5 +1,4 @@
 <div class="page-sidebar-wrapper">
-	saddem
 		<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
 		<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
 		<div class="page-sidebar navbar-collapse collapse">
@@ -14,8 +13,8 @@
 				</li>
 				
 				<!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
-				
-				<li class="active">
+				{% if  is_granted('ROLE_MANAGER') or is_granted('ROLE_DOCTOR')  %}
+				<li class="">
 					<a href="javascript:;">
 					<i class="fa fa-file-word-o"></i>
 					<span class="title">
@@ -24,12 +23,14 @@
 					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
+						{% if is_granted('ROLE_MANAGER') %}
 						<li class="">
 							<a href="#">
 								<i class="fa fa-plus"></i>
 								Nouveau
 							</a>
 						</li>
+						{% endif %}
 						<li class="">
 							<a href="#">
 								<i class="fa fa-align-justify"></i>
@@ -38,7 +39,7 @@
 						</li>
 					</ul>
 				</li>
-					
+				{% endif %}
 
 				{# <li class="start {% if (app.request.get('_route') == 'jms_translation_index' )%} active {% endif %} ">
 					<a href="{{path('jms_translation_index')}}">
@@ -48,27 +49,29 @@
 					</a>
 				</li> #}
 
-				{# <li class="{% if 'site' in app.request.get('_route') %} active {% endif %}">
+				{% if is_granted('ROLE_SUPER_ADMIN') %}
+				<li class="{% if 'user' in app.request.get('_route') %} active {% endif %}">
 					<a href="javascript:;">
-					<i class="fa  fa-globe"></i>
-					<span class="title">Gestion des sites</span>
+					<i class="fa  fa-users"></i>
+					<span class="title">Gestion des utilisateurs</span>
 					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
-						<li class="{% if (app.request.get('_route') == 'internet_factory_site_new' )%} active {% endif %}">
-							<a href="{{path('internet_factory_site_new')}}">
+						<li class="{% if (app.request.get('_route') == 'app_user_new' )%} active {% endif %}">
+							<a href="{{path('app_user_new')}}">
 								<i class="fa fa-plus"></i>
-								Nouveau site
+								Nouvel utilisateur
 							</a>
 						</li>
-						<li class="{% if (app.request.get('_route') == 'internet_factory_site_index' )%} active {% endif %}">
-							<a href="{{ path('internet_factory_site_index') }}">
+						<li class="{% if (app.request.get('_route') == 'app_user_index' )%} active {% endif %}">
+							<a href="{{ path('app_user_index') }}">
 								<i class="fa fa-align-justify"></i>
-								Liste des sites
+								Liste des utilisateurs
 							</a>
 						</li>
 					</ul>
-				</li> #}
+				</li>
+				{% endif %}
 				{# {% if is_granted('ROLE_ADMIN') %}
 				<li class="{% if 'pack' in app.request.get('_route') %} active {% endif %}">
 					<a href="javascript:;">
