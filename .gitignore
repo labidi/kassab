@@ -95,7 +95,7 @@ kassab.sublime-project
 kassab.sublime-workspace
 /web/.htaccess
 /src/.htaccess
-composer.json
+!composer.json
 composer.lock
 /web/app.php
 /web/app_dev.php
