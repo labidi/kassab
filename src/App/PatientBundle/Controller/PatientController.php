@@ -44,7 +44,7 @@ class PatientController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('patient_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('app_patient_show', array('id' => $entity->getId())));
         }
 
         return $this->render('AppPatientBundle:Patient:new.html.twig', array(
@@ -63,7 +63,7 @@ class PatientController extends Controller
     private function createCreateForm(Patient $entity)
     {
         $form = $this->createForm(new PatientType(), $entity, array(
-            'action' => $this->generateUrl('patient_create'),
+            'action' => $this->generateUrl('app_patient_create'),
             'method' => 'POST',
         ));
 
@@ -128,7 +128,7 @@ class PatientController extends Controller
 
         return $this->render('AppPatientBundle:Patient:edit.html.twig', array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -143,7 +143,7 @@ class PatientController extends Controller
     private function createEditForm(Patient $entity)
     {
         $form = $this->createForm(new PatientType(), $entity, array(
-            'action' => $this->generateUrl('patient_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('app_patient_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -172,7 +172,7 @@ class PatientController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('patient_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('app_patient_edit', array('id' => $id)));
         }
 
         return $this->render('AppPatientBundle:Patient:edit.html.twig', array(
@@ -202,7 +202,7 @@ class PatientController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('patient'));
+        return $this->redirect($this->generateUrl('app_patient_index'));
     }
 
     /**
@@ -215,7 +215,7 @@ class PatientController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('patient_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('app_patient_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

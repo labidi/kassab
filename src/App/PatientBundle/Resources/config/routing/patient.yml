@@ -1,0 +1,31 @@
+app_patient_index:
+    path:     /
+    defaults: { _controller: "AppPatientBundle:Patient:index" }
+
+app_patient_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppPatientBundle:Patient:show" }
+
+
+app_patient_new:
+    path:     /new
+    defaults: { _controller: "AppPatientBundle:Patient:new" }
+
+app_patient_create:
+    path:     /create
+    defaults: { _controller: "AppPatientBundle:Patient:create" }
+    requirements: { _method: post }
+
+app_patient_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppPatientBundle:Patient:edit" }
+
+app_patient_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppPatientBundle:Patient:update" }
+    requirements: { _method: post|put }
+
+app_patient_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppPatientBundle:Patient:delete" }
+    requirements: { _method: post|delete }

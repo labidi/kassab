@@ -1,4 +1,4 @@
-{% extends '::base.html.twig' %}
+{% extends '::dashboard/base.html.twig' %}
 
 {% block body -%}
     <h1>Patient</h1>
@@ -302,12 +302,12 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('patient') }}">
+        <a href="{{ path('app_patient_index') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('patient_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('app_patient_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>

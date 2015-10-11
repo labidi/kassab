@@ -1,15 +1,73 @@
-{% extends '::base.html.twig' %}
+{% extends '::dashboard/base.html.twig' %}
+
+{% block title %}  Nouveau patient {% endblock %}
+
+{% block stylesheets %} 
+    {{parent()}}
+
+
+{% endblock %}
+
+
+{% block breadcrumb %} 
+<div class="page-bar">
+	<ul class="page-breadcrumb">
+		<li>
+			<i class="fa fa-home"></i>
+			<a href="{{path('app_patient_index')}}">Liste des patients</a>
+			<i class="fa fa-angle-right"></i>
+		</li>
+		<li>
+			<a href="{{path('app_patient_new')}}">Nouveau patient</a>
+		</li>
+	</ul>
+</div>
+{% endblock %}
+
 
 {% block body -%}
-    <h1>Patient creation</h1>
 
-    {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('patient') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+
+	{{ form_start(form,{'attr':{'class':'form-horizontal'}}) }}
+
+		<div class="form-body">
+			<h4 class="form-section">Informations personnelles</h4>
+        	<hr>
+        	<div class="row">
+            	<div class="col-md-12">
+            		{{form_row(form.nom)}}
+            		{{form_row(form.prenom)}}
+
+            	</div>
+            </div>
+
+			<h4 class="form-section">Informations personnelles</h4>
+        	<hr>
+        	<div class="row">
+            	<div class="col-md-12">
+
+
+            	</div>
+            </div>
+
+
+		</div>
+		<div class="form-actions">
+	        <div class="row">
+	            <div class="col-md-12">
+	                <div class="row">
+	                    <div class="col-md-offset-3 col-md-9">
+	                        {{ form_row(form.submit, { 'label': 'Ajouter','attr':{'class':'btn green'}}) }}
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+
+
+
+   	{{form_end(form)}}
+
+
 {% endblock %}

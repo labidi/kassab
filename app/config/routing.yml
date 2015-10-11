@@ -1,6 +1,6 @@
 app_patient:
     resource: "@AppPatientBundle/Resources/config/routing.yml"
-    prefix:   /dashboard/patient/
+    prefix:   /dashboard/
 
 app_user:
     resource: "@AppUserBundle/Resources/config/routing.yml"
