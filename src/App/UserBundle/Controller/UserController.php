@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\UserBundle\Entity\User;
 use App\UserBundle\Form\UserType;
 
+use App\UserBundle\Form\SearchType;
+
 
 /**
  * User controller.
@@ -27,14 +29,38 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager(); 
 
 
-        $users = $em->getRepository('AppUserBundle:User')->findAll() ;
+        $searchFormData = is_null($request->query->get('search_form'))?array():$request->query->get('search_form'); 
+        unset($searchFormData["submit"]);
+
+        $searchForm = $this->createSearchForm($searchFormData) ;
+        $searchForm->handleRequest($request);
         
+        $users = $em->getRepository('AppUserBundle:User')->findUsers($searchFormData) ;
 
         return $this->render('AppUserBundle:User:index.html.twig', array(
             'entities' => $users,
-            'title'=> "Liste des utilisateurs"
+            'title'=> "Liste des utilisateurs",
+            'search_form'=>$searchForm->createView()
         ));
     }    
+
+
+    private function createSearchForm($data)
+    {   
+        $form = $this->createForm(new SearchType(), null, array(
+            'action' => $this->generateUrl('app_user_index'),
+            'method' => 'GET',
+        ));
+        $form->setData($data) ;
+        $form->add('submit', 'submit', array('label' => 'actions.search'));
+        $form->add('roles', 'choice', array(
+            'choices' => $this->getExistingRoles(),
+            'label' => 'Roles',
+            'multiple' => true,
+            'mapped' => true,
+        ));
+        return $form;
+    }
 
 
     /**
@@ -86,8 +112,6 @@ class UserController extends Controller
             'multiple' => true,
             'mapped' => true,
         ));
-
-
 
         return $form;
     }

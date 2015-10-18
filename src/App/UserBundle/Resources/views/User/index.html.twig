@@ -31,11 +31,33 @@
 {% block body %}
     
     <div class="row">
+        {{ form_start(search_form,{'attr':{'class':'form-horizontal'}}) }}
+            <div class="col-md-3">
+                {{form_row(search_form.first_name)}}
+            </div>
+            <div class="col-md-3">
+                {{form_row(search_form.last_name)}}
+            </div>
+            <div class="col-md-3">
+                {{form_row(search_form.email)}}
+            </div>
+            <div class="col-md-3">
+                {{form_row(search_form.roles)}}
+            </div>
+            <div class="col-md-12 text-right">
+                 {{ form_row(search_form.submit, { 'label': 'Chercher','attr':{'class':'btn green'}}) }}
+                 <a href="{{path('app_user_index')}}" class="btn red ">Réinitialiser</a>
+            </div>
+        {{form_end(search_form)}}
+    </div>
+    <hr>
+    <div class="row">
         <div class="col-md-12">
             <table class="table table-hover">
                 <tr>
                     <th>Nom et prenom</th>
                     <th>Email</th>
+                    <th>Roles</th>
                     <th>Actions</th>
                 </tr>
                 {% for user in entities %}
@@ -45,6 +67,9 @@
                         </td>
                         <td>
                             {{user.email}}
+                        </td>
+                        <td>
+                            {{user.roles[:-1]|join(' | ')}}
                         </td>
                         <td class="util-btn-margin-bottom-5">
                             <a class="btn btn-default" href="{{path('app_user_edit',{'id':user.id})}}">Modifier</a>

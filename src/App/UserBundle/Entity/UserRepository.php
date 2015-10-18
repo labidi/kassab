@@ -12,4 +12,31 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+
+	public function findUsers($filters = array())
+	{
+        $query =  $this->createQueryBuilder('U') ;
+        dump($filters) ;
+        foreach ($filters as $name=>$value) {
+        	switch ($name) {
+        		case "first_name":
+                    $query->andWhere("U.first_name LIKE :$name")->setParameter($name,"%$value%") ;
+        			break;
+                case "last_name":
+                    $query->andWhere("U.last_name LIKE :$name")->setParameter($name, "%$value%");
+                    break;
+                case "email":
+                    $query->andWhere("U.email LIKE :$name")->setParameter($name, "%$value%");
+                    break;
+                case "roles":
+                	foreach ($value as $role) {
+                    	$query->andWhere("U.roles LIKE :$role")->setParameter($role, "%$role%");
+                	}
+                    break;
+        		default:
+        			break;
+        	}
+        } 
+        return $query->getQuery()->getResult();
+	}
 }
