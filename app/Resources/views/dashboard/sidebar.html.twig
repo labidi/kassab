@@ -25,14 +25,14 @@
 					<ul class="sub-menu">
 						{% if is_granted('ROLE_MANAGER') %}
 						<li class="">
-							<a href="#">
+							<a href="{{path('app_patient_new')}}">
 								<i class="fa fa-plus"></i>
 								Nouveau
 							</a>
 						</li>
 						{% endif %}
 						<li class="">
-							<a href="#">
+							<a href="{{path('app_patient_index')}}">
 								<i class="fa fa-align-justify"></i>
 								Liste des patients
 							</a>
