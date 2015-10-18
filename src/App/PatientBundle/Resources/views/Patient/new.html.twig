@@ -38,15 +38,218 @@
             	<div class="col-md-12">
             		<div class="col-md-4">
             			{{form_row(form.nom)}}
+            			{{form_row(form.prenom)}}
+            			{{form_row(form.age)}}
+            			{{form_row(form.num_dossier)}}
             		</div>
             		<div class="col-md-4">
-            			{{form_row(form.prenom)}}
+            			{{form_row(form.diagnostic)}}
+            			{{form_row(form.intervention)}}
+            			{{form_row(form.service)}}
+            		</div>
+            		<div class="col-md-4">
+            			{{form_row(form.chirurgien)}}
+            			{{form_row(form.date)}}
+            			{{form_row(form.medecin_ar)}}
             		</div>
             	</div>
             </div>
 
-			
+            <h4 class="form-section">ATCD médicaux</h4>
+        	<hr>        	            
+            <div class="row">
+            	<div class="col-md-12">
+            		<div class="col-md-1">
+            			{{form_row(form.diabete)}}
+            		</div>
+            		<div class="col-md-3">
+            			{{form_row(form.diabete_depuis)}}
+            		</div>            		
+            		<div class="col-md-4">
+            			{{form_row(form.diabete_complications)}}
+            		</div>
+            		<div class="col-md-4">
+            			{{form_row(form.diabete_traitement)}}
+            		</div>
+            	</div>
+            </div>
+
+            <div class="row">
+				<div class="col-md-offset-2 col-md-8">
+					<hr>
+				</div>
+			</div>
+
+			<div class="row">
+            	<div class="col-md-12">
+            		<div class="col-md-1">
+            			{{form_row(form.hta)}}
+            		</div>
+            		<div class="col-md-3">
+            			{{form_row(form.hta_depuis)}}
+            		</div>            		
+            		<div class="col-md-4">
+            			{{form_row(form.hta_complications)}}
+            		</div>
+            		<div class="col-md-4">
+            			{{form_row(form.hta_traitement)}}
+            		</div>
+            	</div>
+            </div>
+
+            <div class="row">
+				<div class="col-md-offset-2 col-md-8">
+					<hr>
+				</div>
+			</div>
+
+			<div class="row">
+            	<div class="col-md-12">
+            		<div class="col-md-1">
+            			{{form_row(form.coronarien)}}
+            		</div>
+            		<div class="col-md-3">
+            			{{form_row(form.coronarien_depuis)}}
+            		</div>            		
+            		<div class="col-md-4">
+            			{{form_row(form.coronarien_complications)}}
+            		</div>
+            		<div class="col-md-4">
+            			{{form_row(form.coronarien_traitement)}}
+            		</div>
+            		<div class="col-md-4 col-md-offset-1">
+            			{{form_row(form.coronarien_evolution)}}
+            		</div>
+            	</div>
+            </div>
+
+            <div class="row">
+				<div class="col-md-offset-2 col-md-8">
+					<hr>
+				</div>
+			</div>
+
+			<div class="row">
+            	<div class="col-md-12">
+            		<div class="col-md-1">
+            			{{form_row(form.bpco)}}
+            		</div>
+            		<div class="col-md-3">
+            			{{form_row(form.bpco_depuis)}}
+            		</div>            		
+            		<div class="col-md-3">
+            			{{form_row(form.bpco_stade)}}
+            		</div>
+            		<div class="col-md-5">
+            			{{form_row(form.bpco_traitement)}}
+            		</div>
+            	</div>
+            </div>
+
+            <div class="row">
+				<div class="col-md-offset-2  col-md-8">
+					<hr>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					{{form_row(form.atcd_autres)}}
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table table-bordered">
+						<tr>
+							<td>
+								<h4>ATCD chirurgicaux</h4>
+								{{form_row(form.atcd_chirurgicaux)}}				
+							</td>
+							<td>
+								<h4>ATCD chirurgicaux</h4>
+								<div class="col-md-1">
+								{{form_row(form.atcd_transfusionnel)}}
+								</div>
+								<br><br>
+								{{form_row(form.rai_atcd_transfusionnel)}}
+							</td>
+							<td class="col-md-3">
+								{{form_row(form.allergies)}}
+								{{form_row(form.gravite)}}
+								{{form_row(form.tabac)}}
+								{{form_row(form.p_a)}}
+								{{form_row(form.alcool)}}
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>		
+
+                  <div class="row">
+                        <div class="col-md-12">
+                              <table class="table no-borders">
+                                    <tr>
+                                          <td>{{form_row(form.poids)}}</td>
+                                          <td>{{form_row(form.taille)}}</td>
+                                          <td>{{form_row(form.fc)}}</td>
+                                          <td>{{form_row(form.ta)}}</td>
+                                          <td>{{form_row(form.spo2)}}</td>
+                                    </tr>
+                              </table>
+                        </div>
+                  </div>
+
+                  <div class="row">
+                        <div class="col-md-12">
+                              <hr class="sep-section">
+                              <h4>Signes fonctionnels et cliniques :</h4>
+                        </div>
+                  </div>
+
+                  <div class="row">
+                        <div class="col-md-4">
+                              {{form_row(form.dyspne_d_effort)}}
+                              {{form_row(form.orthopnee)}}
+                              {{form_row(form.dyspnee_paroxysthique_nocturne)}}
+                        </div>
+                        <div class="col-md-2">
+                              {{form_row(form.angor)}}
+                              {{form_row(form.omi)}}
+                        </div>
+                        <div class="col-md-2">
+                              {{form_row(form.ascite)}}
+                              {{form_row(form.varices)}}
+                        </div>
+                        <div class="col-md-4">
+                              {{form_row(form.auscultation_cardiaque)}}
+                              {{form_row(form.auscultation_pulmonaire)}}
+                              {{form_row(form.turjuscence_jugulaire)}}
+                        </div>
+                  </div>
 		</div>
+
+            <div class="col-md-12">
+                  {{form_row(form.autres_interrogation_examen)}}
+            </div>
+
+            <div class="row">
+                  <div class="col-md-12">
+                        <table class="table no-borders">
+                              <tr>
+                                    <td>{{form_row(form.mallampati)}}</td>
+                                    <td>{{form_row(form.ob)}}</td>
+                                    <td>{{form_row(form.dtm)}}</td>
+                                    <td>{{form_row(form.rachis)}}</td>
+                              </tr>
+                              <tr>
+                                    <td>{{form_row(form.sous_interrogatoir_autres)}}</td>
+                              </tr>
+                        </table>
+                  </div>
+            </div>
+
+
 		<div class="form-actions">
 	        <div class="row">
 	            <div class="col-md-12">

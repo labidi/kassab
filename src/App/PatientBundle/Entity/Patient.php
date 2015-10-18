@@ -159,7 +159,7 @@ class Patient
      */
     protected $tabac;
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $p_a;
     /**
@@ -227,7 +227,7 @@ class Patient
      */
     protected $auscultation_pulmonaire;
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $autres_interrogation_examen;
     /**
