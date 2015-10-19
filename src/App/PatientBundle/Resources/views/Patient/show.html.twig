@@ -1,306 +1,797 @@
 {% extends '::dashboard/base.html.twig' %}
 
 {% block body -%}
-    <h1>Patient</h1>
+    <h1>Patient {{entity.nom}} {{entity.prenom}}</h1>  
+    <br><br> 
+        
+        <div class="row">
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ entity.nom }}</td>
-            </tr>
-            <tr>
-                <th>Prenom</th>
-                <td>{{ entity.prenom }}</td>
-            </tr>
-            <tr>
-                <th>Age</th>
-                <td>{{ entity.age }}</td>
-            </tr>
-            <tr>
-                <th>Num_dossier</th>
-                <td>{{ entity.numdossier }}</td>
-            </tr>
-            <tr>
-                <th>Diagnostic</th>
-                <td>{{ entity.diagnostic }}</td>
-            </tr>
-            <tr>
-                <th>Intervention</th>
-                <td>{{ entity.intervention }}</td>
-            </tr>
-            <tr>
-                <th>Service</th>
-                <td>{{ entity.service }}</td>
-            </tr>
-            <tr>
-                <th>Chirurgien</th>
-                <td>{{ entity.chirurgien }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Medecin_ar</th>
-                <td>{{ entity.medecinar }}</td>
-            </tr>
-            <tr>
-                <th>Diabete</th>
-                <td>{{ entity.diabete }}</td>
-            </tr>
-            <tr>
-                <th>Diabete_depuis</th>
-                <td>{{ entity.diabetedepuis }}</td>
-            </tr>
-            <tr>
-                <th>Diabete_complications</th>
-                <td>{{ entity.diabetecomplications }}</td>
-            </tr>
-            <tr>
-                <th>Diabete_traitement</th>
-                <td>{{ entity.diabetetraitement }}</td>
-            </tr>
-            <tr>
-                <th>Hta</th>
-                <td>{{ entity.hta }}</td>
-            </tr>
-            <tr>
-                <th>Hta_depuis</th>
-                <td>{{ entity.htadepuis }}</td>
-            </tr>
-            <tr>
-                <th>Hta_complications</th>
-                <td>{{ entity.htacomplications }}</td>
-            </tr>
-            <tr>
-                <th>Hta_traitement</th>
-                <td>{{ entity.htatraitement }}</td>
-            </tr>
-            <tr>
-                <th>Coronarien</th>
-                <td>{{ entity.coronarien }}</td>
-            </tr>
-            <tr>
-                <th>Coronarien_depuis</th>
-                <td>{{ entity.coronariendepuis }}</td>
-            </tr>
-            <tr>
-                <th>Coronarien_complications</th>
-                <td>{{ entity.coronariencomplications }}</td>
-            </tr>
-            <tr>
-                <th>Coronarien_traitement</th>
-                <td>{{ entity.coronarientraitement }}</td>
-            </tr>
-            <tr>
-                <th>Coronarien_evolution</th>
-                <td>{{ entity.coronarienevolution }}</td>
-            </tr>
-            <tr>
-                <th>Bpco</th>
-                <td>{{ entity.bpco }}</td>
-            </tr>
-            <tr>
-                <th>Bpco_depuis</th>
-                <td>{{ entity.bpcodepuis }}</td>
-            </tr>
-            <tr>
-                <th>Bpco_stade</th>
-                <td>{{ entity.bpcostade }}</td>
-            </tr>
-            <tr>
-                <th>Bpco_traitement</th>
-                <td>{{ entity.bpcotraitement }}</td>
-            </tr>
-            <tr>
-                <th>Atcd_autres</th>
-                <td>{{ entity.atcdautres }}</td>
-            </tr>
-            <tr>
-                <th>Atcd_chirurgicaux</th>
-                <td>{{ entity.atcdchirurgicaux }}</td>
-            </tr>
-            <tr>
-                <th>Atcd_transfusionnel</th>
-                <td>{{ entity.atcdtransfusionnel }}</td>
-            </tr>
-            <tr>
-                <th>Rai_atcd_transfusionnel</th>
-                <td>{{ entity.raiatcdtransfusionnel }}</td>
-            </tr>
-            <tr>
-                <th>Allergies</th>
-                <td>{{ entity.allergies }}</td>
-            </tr>
-            <tr>
-                <th>Gravite</th>
-                <td>{{ entity.gravite }}</td>
-            </tr>
-            <tr>
-                <th>Tabac</th>
-                <td>{{ entity.tabac }}</td>
-            </tr>
-            <tr>
-                <th>P_a</th>
-                <td>{{ entity.pa }}</td>
-            </tr>
-            <tr>
-                <th>Alcool</th>
-                <td>{{ entity.alcool }}</td>
-            </tr>
-            <tr>
-                <th>Poids</th>
-                <td>{{ entity.poids }}</td>
-            </tr>
-            <tr>
-                <th>Taille</th>
-                <td>{{ entity.taille }}</td>
-            </tr>
-            <tr>
-                <th>Fc</th>
-                <td>{{ entity.fc }}</td>
-            </tr>
-            <tr>
-                <th>Ta</th>
-                <td>{{ entity.ta }}</td>
-            </tr>
-            <tr>
-                <th>Spo2</th>
-                <td>{{ entity.spo2 }}</td>
-            </tr>
-            <tr>
-                <th>Dyspne_d_effort</th>
-                <td>{{ entity.dyspnedeffort }}</td>
-            </tr>
-            <tr>
-                <th>Orthopnee</th>
-                <td>{{ entity.orthopnee }}</td>
-            </tr>
-            <tr>
-                <th>Dyspnee_paroxysthique_nocturne</th>
-                <td>{{ entity.dyspneeparoxysthiquenocturne }}</td>
-            </tr>
-            <tr>
-                <th>Angor</th>
-                <td>{{ entity.angor }}</td>
-            </tr>
-            <tr>
-                <th>Omi</th>
-                <td>{{ entity.omi }}</td>
-            </tr>
-            <tr>
-                <th>Turjuscence_jugulaire</th>
-                <td>{{ entity.turjuscencejugulaire }}</td>
-            </tr>
-            <tr>
-                <th>Ascite</th>
-                <td>{{ entity.ascite }}</td>
-            </tr>
-            <tr>
-                <th>Varices</th>
-                <td>{{ entity.varices }}</td>
-            </tr>
-            <tr>
-                <th>Auscultation_cardiaque</th>
-                <td>{{ entity.auscultationcardiaque }}</td>
-            </tr>
-            <tr>
-                <th>Auscultation_pulmonaire</th>
-                <td>{{ entity.auscultationpulmonaire }}</td>
-            </tr>
-            <tr>
-                <th>Autres_interrogation_examen</th>
-                <td>{{ entity.autresinterrogationexamen }}</td>
-            </tr>
-            <tr>
-                <th>Mallampati</th>
-                <td>{{ entity.mallampati }}</td>
-            </tr>
-            <tr>
-                <th>Ob</th>
-                <td>{{ entity.ob }}</td>
-            </tr>
-            <tr>
-                <th>Dtm</th>
-                <td>{{ entity.dtm }}</td>
-            </tr>
-            <tr>
-                <th>Rachis</th>
-                <td>{{ entity.rachis }}</td>
-            </tr>
-            <tr>
-                <th>Sous_interrogatoir_autres</th>
-                <td>{{ entity.sousinterrogatoirautres }}</td>
-            </tr>
-            <tr>
-                <th>Asa</th>
-                <td>{{ entity.asa }}</td>
-            </tr>
-            <tr>
-                <th>Nyh</th>
-                <td>{{ entity.nyh }}</td>
-            </tr>
-            <tr>
-                <th>Lee</th>
-                <td>{{ entity.lee }}</td>
-            </tr>
-            <tr>
-                <th>Terrain</th>
-                <td>{{ entity.terrain }}</td>
-            </tr>
-            <tr>
-                <th>Ecg</th>
-                <td>{{ entity.ecg }}</td>
-            </tr>
-            <tr>
-                <th>Rx_thorax</th>
-                <td>{{ entity.rxthorax }}</td>
-            </tr>
-            <tr>
-                <th>Echo_coeur</th>
-                <td>{{ entity.echocoeur }}</td>
-            </tr>
-            <tr>
-                <th>Autres_examen</th>
-                <td>{{ entity.autresexamen }}</td>
-            </tr>
-            <tr>
-                <th>Avis_specialise</th>
-                <td>{{ entity.avisspecialise }}</td>
-            </tr>
-            <tr>
-                <th>Recommandations</th>
-                <td>{{ entity.recommandations }}</td>
-            </tr>
-            <tr>
-                <th>Technique_anesthesique</th>
-                <td>{{ entity.techniqueanesthesique }}</td>
-            </tr>
-            <tr>
-                <th>Protocole_anesthesique</th>
-                <td>{{ entity.protocoleanesthesique }}</td>
-            </tr>
-            <tr>
-                <th>Protocole_analgestique</th>
-                <td>{{ entity.protocoleanalgestique }}</td>
-            </tr>
-            <tr>
-                <th>Epargne_sanguine</th>
-                <td>{{ entity.epargnesanguine }}</td>
-            </tr>
-            <tr>
-                <th>Premedication</th>
-                <td>{{ entity.premedication }}</td>
-            </tr>
-        </tbody>
-    </table>
+            <div class="col-md-12">
+                <form id="form" role="form" class="form-horizontal">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-4">
+                                    <div class="form-group test">
+                                        <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Nom</label>
+                                        <div class="col-lg-8 col-xs-8">
+                                            {{entity.nom}}
+                                        </div>
+                                    </div>
 
-        <ul class="record_actions">
+                                    <div class="form-group test">
+                                        <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Penom</label>
+                                        <div class="col-lg-8 col-xs-8">
+                                            {{entity.prenom}}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group test">
+                                        <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Age</label>
+                                        <div class="col-lg-8 col-xs-8">
+                                            {{entity.age}}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group test">
+                                        <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">N° Dossier</label>
+                                        <div class="col-lg-8 col-xs-8">
+                                            {{entity.numdossier}}
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="col-md-4 col-xs-4">
+
+                                    <div class="form-group test">
+                                        <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Diagnostic</label>
+                                        <div class="col-lg-8 col-xs-8">
+                                            {{entity.diagnostic}}
+                                        </div>
+                                    </div>
+                                    <div class="form-group test">
+                                        <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Intervention</label>
+                                        <div class="col-lg-8 col-xs-8">
+                                            {{entity.intervention}}
+                                        </div>
+                                    </div>
+                                    <div class="form-group test">
+                                        <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Service</label>
+                                        <div class="col-lg-8 col-xs-8">
+                                            {{entity.service}}
+                                        </div>
+                                    </div>
+
+                            </div>
+                            <div class="col-md-4 col-xs-4">
+                                    <div class="form-group test">
+                                        <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Chirurgien</label>
+                                        <div class="col-lg-8 col-xs-8">
+                                            {{entity.chirurgien}}
+                                        </div>
+                                    </div>
+                                    <div class="form-group test">
+                                        <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Date</label>
+                                        <div class="col-lg-8 col-xs-8">
+                                            {{entity.date|date("d/m/Y")}}
+                                        </div>
+                                    </div>
+                                    <div class="form-group test">
+                                        <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Médecin AR</label>
+                                        <div class="col-lg-8 col-xs-8">
+                                            {{entity.medecinar}}
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <hr class="sep-section hidden-print">
+
+                                <h3>ATCD médicaux</h3>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-1 col-xs-1">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Diabete</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.diabete}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-xs-1">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Depuis</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.diabetedepuis}} 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-xs-5">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Complications</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.diabetecomplications}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-xs-5">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Traitement</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.diabetetraitement}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-8 col-xs-8">
+                                <hr class="hidden-print">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-1 col-xs-1">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">HTA</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.hta}} 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-xs-1">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Depuis</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.htadepuis}} 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-5 col-xs-5">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Complications</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.htacomplications}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-5 col-xs-5">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Traitement</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.htatraitement}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-offset-2  col-md-8 col-xs-8">
+                                <hr class="hidden-print">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-1 col-xs-1">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Coronarien</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.coronarien}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-xs-1">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Depuis</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.coronariendepuis}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-xs-5">
+                                <div class="form-group col-xs-12">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Complications</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.coronariencomplications}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-xs-5">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Traitement</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.coronarientraitement}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-md-offset-1 col-xs-4">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Evolution</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.coronarienevolution}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-offset-2  col-md-8 col-xs-8">
+                                <hr class="hidden-print">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-1 col-xs-1">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">BPCO</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.bpco}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-xs-1">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Depuis</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.bpcodepuis}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-xs-1">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Stade</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.bpcostade}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-4">
+                                <div class="form-group">
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-xs-5">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Traitement</label>
+                                    <div class="col-lg-12 col-xs-12">
+                                        {{entity.bpcotraitement}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-md-offset-2  col-md-8 col-xs-8">
+                                <hr class="hidden-print">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Autres</label>
+                                    <div class="col-lg-12 ">
+                                        {{entity.atcdautres}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        
+
+                        <div class="row">
+
+                            <div class="col-md-12 col-xs-12">
+
+                                <table class="table table-bordered">
+
+                                    <tr>
+                                        <td width= "40%">
+                                            <h3>ATCD chirurgicaux</h3>
+                                            <div class="col-md-12 aa col-xs-12">
+                                                <div class="form-group">
+                                                    <div class="col-lg-12 col-xs-12">
+                                                        {{entity.atcdchirurgicaux}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td width= "40%">
+                                            <h3>ATCD transfusionnel</h3>
+
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="form-group">
+                                                        <div class="col-lg-12 aa col-xs-12">
+                                                            {{entity.atcdtransfusionnel}}
+                                                        <div class="col-lg-12 col-xs-12">
+                                                </div>
+                                            </div>
+
+                                            <br class="hidden-print"><br class="hidden-print">
+                                            <label style="font-weight: bold;" class="col-lg-12 col-xs-12">RAI</label>
+                                            {{entity.raiatcdtransfusionnel}}
+                                        </td>
+
+                                        <td width= "20%">
+                                            <div class="form-group test">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4 ">Allergies</label>
+                                                <div class="col-md-8 col-xs-8 ">
+                                                    {{entity.allergies}}
+                                                </div>
+                                            </div>
+                                            <div class="form-group test">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">Gravité</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.gravite}}
+                                                </div>
+                                            </div>
+                                            <div class="form-group test">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">Tabac</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.tabac}}
+                                                </div>
+                                            </div>
+                                            <div class="form-group test">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">P/A</label>
+                                                <div class="col-md-3 col-xs-3">
+                                                    {{entity.pa}}
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group test">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">Alcool</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.alcool}}
+                                                </div>
+                                            </div>
+                                        </td>
+
+
+                                    </tr>   
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row test">
+                            <div class="col-md-12 col-xs-12">
+                                <table class="table no-borders">
+
+                                    <tr>
+                                        <td>
+                                            <div class="form-group test">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">Poids</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.poids}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group test">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">Taille</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.taille}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group test">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">FC</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.fc}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group test">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">TA</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.ta}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group test">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">SPO2</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.spo2}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-xs-8">
+                                <hr class="sep-section hidden-print">
+                                <h3>Signes fonctionnels et cliniques :</h3>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-3 col-xs-3">
+                                <div class="form-group test">
+                                    <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Dyspnée d'effort</label>
+                                    <div class="col-lg-8 col-xs-8">
+                                        {{entity.dyspnedeffort}}
+                                    </div>
+                                </div>
+                                <div class="form-group test">
+                                    <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Orthopnée</label>
+                                    <div class="col-lg-8 col-xs-8">
+                                        {{entity.orthopnee}}
+                                    </div>
+                                </div>
+                                <div class="form-group test">
+                                    <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Dyspnée paroxysthique nocturne</label>
+                                    <div class="col-lg-8 col-xs-8">
+                                        {{entity.dyspneeparoxysthiquenocturne}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-xs-3">
+                                <div class="form-group test">
+                                    <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Angor</label>
+                                    <div class="col-lg-8 col-xs-8">
+                                        {{entity.angor}}
+                                    </div>
+                                </div>
+                                <div class="form-group test">
+                                    <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">OMI</label>
+                                    <div class="col-lg-8 col-xs-8">
+                                        {{entity.omi}}
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+
+                            <div class="col-md-2 col-xs-2">
+                                <div class="form-group test">
+                                    <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Ascite</label>
+                                    <div class="col-lg-8 col-xs-8">
+                                        {{entity.ascite}}
+                                    </div>
+                                </div>
+                                <div class="form-group test">
+                                    <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Varices</label>
+                                    <div class="col-lg-8 col-xs-8">
+                                        {{entity.varices}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-4">
+                                <div class="form-group test">
+                                    <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Souffle cardiaque</label>
+                                    <div class="col-lg-8 col-xs-8">
+                                        {{entity.auscultationcardiaque}}
+                                    </div>
+                                </div>
+                                <div class="form-group test">
+                                    <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Rales pulmonaires</label>
+                                    <div class="col-lg-8 col-xs-8">
+                                        {{entity.auscultationpulmonaire}}
+                                    </div>
+                                </div>
+                                <div class="form-group test">
+                                    <label style="font-weight: bold;" class="col-lg-4 col-lg-4 col-xs-4">Turjuscence jugulaire</label>
+                                    <div class="col-lg-8 col-xs-8">
+                                        {{entity.turjuscencejugulaire}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+
+                        <div class="col-md-12 col-xs-12">
+                                    <div class="form-group test">
+                                            <label style="font-weight: bold;" class="col-lg-12 col-xs-12">Autres signes d'examen</label>
+                                            <div class="col-lg-12 col-xs-12">
+                                                {{entity.autresinterrogationexamen}}
+                                            </div>
+                                    </div>
+                        </div>              
+
+                        
+                        <div class="row test">
+                            <div class="col-md-12 col-xs-12 test">
+
+                                <table class="table no-borders">
+
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">Mallampati</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.mallampati}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">OB</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.ob}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">DTM</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.dtm}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">Rachis</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.rachis}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">Autres</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.sousinterrogatoirautres}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+
+                        <div class="row test">
+                            <div class="col-md-12 col-xs-12 test">
+
+                                <table class="table no-borders test">
+
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <label style="font-weight: bold;" class="col-md-3 col-xs-3">ASA</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.asa}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label style="font-weight: bold;" class="col-md-3 col-xs-3">NYHA</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.nyh}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label style="font-weight: bold;" class="col-md-3 col-xs-3">LEE</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.lee}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label style="font-weight: bold;" class="col-md-3 col-xs-3">Terrain</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.terrain}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4"></label>
+                                                <div class="col-md-8 col-xs-8">
+                                                </div>
+                                            </div>
+                                        </td>                                       
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+
+
+                        
+
+
+                        <div class="row dontfragment">
+                            
+                                <div class="col-md-12 col-xs-12">
+                                    <hr class="sep-section hidden-print">
+
+                                    <h3>Examen complementaire :</h3>
+                                </div>
+                            
+                            <div class="col-md-12 col-xs-12">
+                                <table id="examens" class="table" data-prototype='<tr> 
+                                    <td><span   class="date"  ></span></td> 
+                                    <td><span  class="examenhb"  ></span></td> 
+                                    <td><span class="examenht"  ></span></td> 
+                                    <td><span class="examenplq"  ></span></td> 
+                                    <td><span class="examengie"  ></span></td> 
+                                <td><span class="examenuree"  ></span></td> 
+                                <td><span class="examencreat"  ></span></td> 
+                                <td><span class="examenna"  ></span></td> 
+                                <td><span class="examenk"  ></span></td> 
+                                <td><span class="examentp"  ></span></td> 
+                                <td><span class="examentca"  ></span></td> 
+                                <td><span class="examengs"  ></span></td>  </tr>'>
+                                    <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Hb</th>
+                                        <th>Ht</th>
+                                        <th>Plq</th>
+                                        <th>Gie</th>
+                                        <th>Uree</th>
+                                        <th>Creat</th>
+                                        <th>Na+</th>
+                                        <th>K+</th>
+                                        <th>TP</th>
+                                        <th>TCA</th>
+                                        <th>GS</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                                <div class="col-md-12 col-xs-12">
+                                <br class="hidden-print">
+                            </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <hr class="hidden-print">
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+
+                                <table class="table no-borders">
+
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">ECG</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.ecg}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">RX thorax</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.rxthorax}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">Echo coeur</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.echocoeur}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label style="font-weight: bold;" class="col-md-4 col-xs-4">Autres</label>
+                                                <div class="col-md-8 col-xs-8">
+                                                    {{entity.autresexamen}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>                              
+                        </div>
+
+                        <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-md-2 col-xs-2">Avis specialisé</label>
+                                    <div class="col-md-10 col-xs-10">
+                                        {{entity.avisspecialise}}
+                                    </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6 col-xs-6">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-md-4 col-xs-4">Recommandations</label>
+                                    <div class="col-md-8 col-xs-8">
+                                        {{entity.recommandations}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-md-4 col-xs-4">Technique anesthesique</label>
+                                    <div class="col-md-8 col-xs-8">
+                                        {{entity.techniqueanesthesique}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-md-4 col-xs-4">Protocole anesthesique</label>
+                                    <div class="col-md-8 col-xs-8">
+                                        {{entity.protocoleanesthesique}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-md-4 col-xs-4">Protocole analgestique</label>
+                                    <div class="col-md-8 col-xs-8">
+                                        {{entity.protocoleanalgestique}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-md-4 col-xs-4">Epargne sanguine</label>
+                                    <div class="col-md-8 col-xs-8">
+                                        {{entity.epargnesanguine}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <div class="form-group">
+                                    <label style="font-weight: bold;" class="col-md-4 col-xs-4">Prémedication</label>
+                                    <div class="col-md-8 col-xs-8">
+                                        {{entity.premedication}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <hr class="sep-section hidden-print">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12 hidden-print">
+                                <A HREF="javascript:window.print()" class="btn btn-primary glyphicon glyphicon-print pull-right"> Imprimer</A>>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+        <ul class="recordactions">
     <li>
         <a href="{{ path('app_patient_index') }}">
             Back to the list

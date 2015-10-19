@@ -1,6 +1,7 @@
 {% extends '::dashboard/base.html.twig' %}
 
 {% block body -%}
+    <h1>Liste des patients</h1>
      <div class="row">
         <div class="col-md-12">
             <table class="table table-hover">
@@ -21,13 +22,13 @@
                         <td>{{ entity.age }}</td>
                         <td>{{ entity.numdossier }}</td>
                         <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('app_patient_show', { 'id': entity.id }) }}">show</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('app_patient_edit', { 'id': entity.id }) }}">edit</a>
-                            </li>
+                        
+                                <a class="glyphicon glyphicon-eye-open btn" href="{{ path('app_patient_show', { 'id': entity.id }) }}">Afficher</a>
+                            
+                                <a class="glyphicon glyphicon-pencil btn" href="{{ path('app_patient_edit', { 'id': entity.id }) }}">Modifier</a>
+
+                                <a class="glyphicon glyphicon-remove btn" href="{{ path('app_patient_delete', { 'id': entity.id }) }}">Supprimer</a>
+                            
                         </ul>
                         </td>
                     </tr>
@@ -36,12 +37,4 @@
             </table>
         </div>
     </div>
-
-        <ul>
-        <li>
-            <a href="{{ path('app_patient_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
     {% endblock %}

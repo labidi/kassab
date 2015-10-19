@@ -237,25 +237,94 @@
                   <div class="col-md-12">
                         <table class="table no-borders">
                               <tr>
-                                    <td>{{form_row(form.mallampati)}}</td>
-                                    <td>{{form_row(form.ob)}}</td>
-                                    <td>{{form_row(form.dtm)}}</td>
-                                    <td>{{form_row(form.rachis)}}</td>
+                                    <td class="col-md-4">{{form_row(form.mallampati)}}</td>
+                                    <td class="col-md-2">{{form_row(form.ob)}}</td>
+                                    <td class="col-md-2">{{form_row(form.dtm)}}</td>
+                                    <td class="col-md-2">{{form_row(form.rachis)}}</td>
+                                    <td class="col-md-3">{{form_row(form.sous_interrogatoir_autres)}}</td>
                               </tr>
+                        </table>
+                  </div>
+            </div>
+
+            <div class="row">
+                  <div class="col-md-12">
+                        <table class="table no-borders">
                               <tr>
-                                    <td>{{form_row(form.sous_interrogatoir_autres)}}</td>
+                                    <td>{{form_row(form.asa)}}</td>
+                                    <td>{{form_row(form.nyh)}}</td>
+                                    <td>{{form_row(form.lee)}}</td>
+                                    <td>{{form_row(form.terrain)}}</td>
                               </tr>
                         </table>
                   </div>
             </div>
 
 
+            <div class="row">
+                  <div class="col-md-12">
+                        <hr class="sep-section">
+                        <h4>Examen complementaire :</h4>
+                  </div>
+            </div>
+
+
+            <div class="row">
+                                          
+                  <div class="col-md-12">
+                        <table id="examens" data-index="1" class="table" data-prototype='<tr id="__name__"> <td><input value="" type="date" name="examen[__name__][date]" class="form-control" ></td> <td><input value="" name="examen[__name__][examen_hb]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_ht]" type="text" class="form-control"></td> <td><input name="examen[__name__][examen_plq]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_gie]" type="text" class="form-control"></td> <td><input name="examen[__name__][examen_uree]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_creat]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_na]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_k]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_tp]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_tca]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_gs]" type="text" class="form-control"></td> <td id="actions___name__"></td> </tr>'>
+                              <tr>
+                                    <th>Date</th>
+                                    <th>Hb</th>
+                                    <th>Ht</th>
+                                    <th>Plq</th>
+                                    <th>Gie</th>
+                                    <th>Uree</th>
+                                    <th>Creat</th>
+                                    <th>Na+</th>
+                                    <th>K+</th>
+                                    <th>TP</th>
+                                    <th>TCA</th>
+                                    <th>GS</th>
+                                    <th>Actions</th>
+                              </tr>
+                        </table>
+                        <div class="col-md-12">
+                              <button class="pull-right btn btn-primary plusbtn">+</button>
+                        <br><br>
+                        </div>
+                  </div>
+            </div>
+
+            <div class="row">
+                  <div class="col-md-12">
+                        <table class="table no-borders">
+                              <tr>
+                                    <td>{{form_row(form.ecg)}}</td>
+                                    <td>{{form_row(form.rx_thorax)}}</td>
+                                    <td>{{form_row(form.echo_coeur)}}</td>
+                                    <td>{{form_row(form.autres_examen)}}</td>
+                              </tr>
+                        </table>
+                  </div>
+            </div>
+
+            <div class="row">
+                  <div class="col-md-6">{{form_row(form.avis_specialise)}}</div>
+                  <div class="col-md-6">{{form_row(form.recommandations)}}</div>
+                  <div class="col-md-6">{{form_row(form.technique_anesthesique)}}</div>
+                  <div class="col-md-6">{{form_row(form.protocole_anesthesique)}}</div>
+                  <div class="col-md-6">{{form_row(form.protocole_analgestique)}}</div>
+                  <div class="col-md-6">{{form_row(form.epargne_sanguine)}}</div>
+                  <div class="col-md-6">{{form_row(form.premedication)}}</div>
+            </div>
+
 		<div class="form-actions">
 	        <div class="row">
 	            <div class="col-md-12">
 	                <div class="row">
 	                    <div class="col-md-offset-3 col-md-9">
-	                        {{ form_row(form.submit, { 'label': 'Ajouter','attr':{'class':'btn green'}}) }}
+	                        {{ form_row(form.submit, { 'label': 'Enregistrer','attr':{'class':'btn green pull-right'}}) }}
 	                    </div>
 	                </div>
 	            </div>
