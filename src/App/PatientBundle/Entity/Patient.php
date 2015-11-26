@@ -311,6 +311,12 @@ class Patient
      */
     protected $premedication;
 
+    // ...
+    /**
+     * @ORM\OneToMany(targetEntity="Examen", mappedBy="patient", cascade={"persist"})
+     */
+    private $examens;
+
 
     /**
      * Get id
@@ -2048,5 +2054,47 @@ class Patient
     public function getPremedication()
     {
         return $this->premedication;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->examens = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add examen
+     *
+     * @param \App\PatientBundle\Entity\Examen $examen
+     *
+     * @return Patient
+     */
+    public function addExamen(\App\PatientBundle\Entity\Examen $examen)
+    {
+        $examen->setPatient($this) ;
+        $this->examens[] = $examen;
+
+        return $this;
+    }
+
+    /**
+     * Remove examen
+     *
+     * @param \App\PatientBundle\Entity\Examen $examen
+     */
+    public function removeExamen(\App\PatientBundle\Entity\Examen $examen)
+    {
+        $this->examens->removeElement($examen);
+    }
+
+    /**
+     * Get examens
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getExamens()
+    {
+        return $this->examens;
     }
 }

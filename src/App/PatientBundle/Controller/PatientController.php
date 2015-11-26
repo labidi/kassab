@@ -2,8 +2,11 @@
 
 namespace App\PatientBundle\Controller;
 
+use App\PatientBundle\Entity\Examen;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 use App\PatientBundle\Entity\Patient;
 use App\PatientBundle\Form\PatientType;
@@ -79,7 +82,10 @@ class PatientController extends Controller
     public function newAction()
     {
         $entity = new Patient();
+        $examen = new Examen() ;
+        $entity->addExamen($examen) ;
         $form   = $this->createCreateForm($entity);
+
 
         return $this->render('AppPatientBundle:Patient:new.html.twig', array(
             'entity' => $entity,
@@ -106,6 +112,7 @@ class PatientController extends Controller
         return $this->render('AppPatientBundle:Patient:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
+            'allow_delete' => true,
         ));
     }
 
@@ -165,21 +172,57 @@ class PatientController extends Controller
             throw $this->createNotFoundException('Unable to find Patient entity.');
         }
 
+        $exams = new ArrayCollection() ;
+        foreach($entity->getExamens() as $exam){
+            $exams->add($exam) ;
+        }
+
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+
+            foreach ($exams as $exam) {
+                if (false === $entity->getExamens()->contains($exam)) {
+                    $entity->removeExamen($exam) ;
+                    $em->remove($exam);
+                }
+            }
+
+            $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('app_patient_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('app_patient_index'));
         }
+
+        dump($this->getErrorMessages($editForm)) ;
 
         return $this->render('AppPatientBundle:Patient:edit.html.twig', array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
+    }
+
+    private function getErrorMessages(\Symfony\Component\Form\Form $form) {
+        $errors = array();
+
+        foreach ($form->getErrors() as $key => $error) {
+            if ($form->isRoot()) {
+                $errors['#'][] = $error->getMessage();
+            } else {
+                $errors[] = $error->getMessage();
+            }
+        }
+
+        foreach ($form->all() as $child) {
+            if (!$child->isValid()) {
+                $errors[$child->getName()] = $this->getErrorMessages($child);
+            }
+        }
+
+        return $errors;
     }
     /**
      * Deletes a Patient entity.

@@ -268,29 +268,49 @@
                   </div>
             </div>
 
-
             <div class="row">
                                           
                   <div class="col-md-12">
-                        <table id="examens" data-index="1" class="table" data-prototype='<tr id="__name__"> <td><input value="" type="date" name="examen[__name__][date]" class="form-control" ></td> <td><input value="" name="examen[__name__][examen_hb]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_ht]" type="text" class="form-control"></td> <td><input name="examen[__name__][examen_plq]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_gie]" type="text" class="form-control"></td> <td><input name="examen[__name__][examen_uree]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_creat]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_na]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_k]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_tp]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_tca]" type="text" class="form-control"></td> <td><input value="" name="examen[__name__][examen_gs]" type="text" class="form-control"></td> <td id="actions___name__"></td> </tr>'>
-                              <tr>
-                                    <th>Date</th>
-                                    <th>Hb</th>
-                                    <th>Ht</th>
-                                    <th>Plq</th>
-                                    <th>Gie</th>
-                                    <th>Uree</th>
-                                    <th>Creat</th>
-                                    <th>Na+</th>
-                                    <th>K+</th>
-                                    <th>TP</th>
-                                    <th>TCA</th>
-                                    <th>GS</th>
-                                    <th>Actions</th>
-                              </tr>
-                        </table>
+                        <table id="examens" data-index="1" class="table" data-prototype='{% include('AppPatientBundle:Patient:prototype/examen.html.twig') %}'>
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>Hb</th>
+									<th>Ht</th>
+									<th>Plq</th>
+									<th>Gie</th>
+									<th>Uree</th>
+									<th>Creat</th>
+									<th>Na+</th>
+									<th>K+</th>
+									<th>TP</th>
+									<th>TCA</th>
+									<th>GS</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for examen in form.examens %}
+									<tr>
+										<td>{{ form_widget(examen.date) }}</td>
+										<td>{{ form_widget(examen.hb) }}</td>
+										<td>{{ form_widget(examen.ht) }}</td>
+										<td>{{ form_widget(examen.plq) }}</td>
+										<td>{{ form_widget(examen.gie) }}</td>
+										<td>{{ form_widget(examen.uree) }}</td>
+										<td>{{ form_widget(examen.creat) }}</td>
+										<td>{{ form_widget(examen.naplus) }}</td>
+										<td>{{ form_widget(examen.kplus) }}</td>
+										<td>{{ form_widget(examen.tp) }}</td>
+										<td>{{ form_widget(examen.tca) }}</td>
+										<td>{{ form_widget(examen.gs) }}</td>
+										<td class="actions"></td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
                         <div class="col-md-12">
-                              <button class="pull-right btn btn-primary plusbtn">+</button>
+                              <a id="add_examen" href="#" class="btn btn-primary plusbtn">+ Ajouter un examen</a>
                         <br><br>
                         </div>
                   </div>
@@ -336,4 +356,49 @@
    	{{form_end(form)}}
 
 
+{% endblock %}
+
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+
+
+		jQuery(document).ready(function() {
+			$collectionHolder = $('#examens');
+			$collectionHolder.find('tr').each(function() {
+				addExamenFormDeleteLink($(this));
+			});
+			var $addExamenLink = $('#add_examen');
+			$collectionHolder.data('index', $collectionHolder.find(':input').length);
+			$addExamenLink.on('click', function(e) {
+				e.preventDefault();
+				addExamenForm($collectionHolder);
+			});
+
+			function addExamenForm($collectionHolder) {
+				var prototype = $collectionHolder.data('prototype');
+				var index = $collectionHolder.data('index');
+				var newForm = prototype.replace(/__name__/g, index);
+				$collectionHolder.data('index', index + 1);
+				var $newFormRow = $(newForm);
+				$newFormRow.find('.datepicker').datepicker({
+					language: "fr"
+				});
+				$collectionHolder.find('tr:last').after($newFormRow);
+				addExamenFormDeleteLink($newFormRow) ;
+			}
+
+			function addExamenFormDeleteLink($newFormRow) {
+				var $removeFormA = $('<a class="btn primary" href="#">Supprimer</a>');
+				$newFormRow.find('td.actions').append($removeFormA);
+				$removeFormA.on('click', function(e) {
+					e.preventDefault();
+					$newFormRow.remove();
+				});
+			}
+
+		})
+
+	</script>
 {% endblock %}

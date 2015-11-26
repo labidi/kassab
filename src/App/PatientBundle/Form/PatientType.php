@@ -23,7 +23,7 @@ class PatientType extends AbstractType
             ->add('intervention',null,array('attr' => array('placeholder'=>'Intervention')))
             ->add('service',null,array('attr' => array('placeholder'=>'Service')))
             ->add('chirurgien',null,array('attr' => array('placeholder'=>'Chirurgien')))
-            ->add('date','date',array('attr' => array('class' => 'datepicker')))
+            ->add('date','date',array('widget'=>'single_text','format' => 'dd/MM/yyyy','attr' => array('class' => 'datepicker')))
             ->add('medecin_ar',null,array('label' => 'Médecin AR','attr' => array('placeholder'=>'Médecin AR')))
             ->add('diabete')
             ->add('diabete_depuis',null,array('label'=>'Depuis'))
@@ -87,6 +87,11 @@ class PatientType extends AbstractType
             ->add('protocole_analgestique')
             ->add('epargne_sanguine')
             ->add('premedication',null,array('label'=>'Prémedication'))
+            ->add('examens', 'collection', array(
+                'type' => new ExamenType(),
+                'allow_add'    => true,
+                'by_reference' => false,
+                ))
         ;
     }
     
