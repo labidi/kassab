@@ -18,7 +18,7 @@ class PatientType extends AbstractType
             ->add('nom',null,array('label'=>'Nom','attr' => array('placeholder'=>'Nom du patient')))
             ->add('prenom',null,array('label'=>'Prenom','attr' => array('placeholder'=>'Prenom du patient')))
             ->add('age',null,array('label'=>'Age','attr' => array('placeholder'=>'Age du patient')))
-            ->add('num_dossier',null,array('label'=>'N° dossier','attr' => array('placeholder'=>'Numero du dossier')))
+            ->add('num_dossier',null,array('label'=>'N° dossier','attr' => array('placeholder'=>'Numero du dossier','readonly'=>'readonly')))
             ->add('diagnostic',null,array('attr' => array('placeholder'=>'Diagnostic')))
             ->add('intervention',null,array('attr' => array('placeholder'=>'Intervention')))
             ->add('service',null,array('attr' => array('placeholder'=>'Service')))

@@ -83,6 +83,21 @@ class PatientController extends Controller
     {
         $entity = new Patient();
         $examen = new Examen() ;
+
+        $em = $this->getDoctrine()->getManager();
+        $lastId = 0 ;
+        $lastPatientId = $em->getRepository('AppPatientBundle:Patient')->createQueryBuilder('P')
+            ->select('Max(P.id) as maxid')
+            //->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+
+        if(isset($lastPatientId['maxid']))
+            $lastId = $lastPatientId['maxid'] ;
+
+        $entity->setNumDossier(($lastId+1).'/'.date('Y')) ;
+
         $entity->addExamen($examen) ;
         $form   = $this->createCreateForm($entity);
 
