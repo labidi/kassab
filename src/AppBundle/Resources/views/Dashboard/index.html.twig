@@ -1,8 +1,19 @@
 {% extends "::dashboard/base.html.twig" %}
 
-{% block title %}AppBundle:Dashboard:index{% endblock %}
+{% block title %}Tableau de bord{% endblock %}
 
 {% block body %}
 
+    <a href="{{ path('app_patient_index') }}" class="icon-btn">
+        <i class="fa fa-file-word-o"></i>
+        <div> Gestion des patients </div>
+        <span class="badge badge-danger"> 2 </span>
+    </a>
+
+    <a href="{{ path('app_user_index') }}" class="icon-btn">
+        <i class="fa fa-group"></i>
+        <div> Gestion des utilisateurs </div>
+        <span class="badge badge-danger"> 2 </span>
+    </a>
 
 {% endblock %}

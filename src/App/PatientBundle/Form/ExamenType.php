@@ -16,17 +16,17 @@ class ExamenType extends AbstractType
     {
         $builder
             ->add('date','date',array('widget' => 'single_text','format' => 'dd/MM/yyyy','attr' => array('class'=>'datepicker')))
-            ->add('hb')
-            ->add('ht')
-            ->add('plq')
-            ->add('gie')
-            ->add('uree')
-            ->add('creat')
-            ->add('naplus')
-            ->add('kplus')
-            ->add('tp')
-            ->add('tca')
-            ->add('gs')
+            ->add('hb',null,array('required'=>false))
+            ->add('ht',null,array('required'=>false))
+            ->add('plq',null,array('required'=>false))
+            ->add('gie',null,array('required'=>false))
+            ->add('uree',null,array('required'=>false))
+            ->add('creat',null,array('required'=>false))
+            ->add('naplus',null,array('required'=>false))
+            ->add('kplus',null,array('required'=>false))
+            ->add('tp',null,array('required'=>false))
+            ->add('tca',null,array('required'=>false))
+            ->add('gs',null,array('required'=>false))
         ;
     }
     

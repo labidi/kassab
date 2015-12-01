@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 use App\PatientBundle\Entity\Patient;
 use App\PatientBundle\Form\PatientType;
+use App\PatientBundle\Form\SearchType;
 
 /**
  * Patient controller.
@@ -22,16 +23,34 @@ class PatientController extends Controller
      * Lists all Patient entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AppPatientBundle:Patient')->findAll();
+        $searchFormData = is_null($request->query->get('search_form'))?array():$request->query->get('search_form');
+        unset($searchFormData["submit"]);
+        $searchForm = $this->createSearchForm($searchFormData) ;
+        $entities = $em->getRepository('AppPatientBundle:Patient')->findPatients($searchFormData);
 
         return $this->render('AppPatientBundle:Patient:index.html.twig', array(
             'entities' => $entities,
+            'search_form'=>$searchForm->createView()
         ));
     }
+
+
+    private function createSearchForm($data)
+    {
+        $form = $this->createForm(new SearchType(), null, array(
+            'action' => $this->generateUrl('app_patient_index'),
+            'method' => 'GET',
+        ));
+        $form->setData($data) ;
+        $form->add('submit', 'submit', array('label' => 'actions.search'));
+        return $form;
+    }
+
+
     /**
      * Creates a new Patient entity.
      *

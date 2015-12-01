@@ -16,7 +16,6 @@ class UserRepository extends EntityRepository
 	public function findUsers($filters = array())
 	{
         $query =  $this->createQueryBuilder('U') ;
-        dump($filters) ;
         foreach ($filters as $name=>$value) {
         	switch ($name) {
         		case "first_name":
