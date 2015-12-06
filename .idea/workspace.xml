@@ -5,12 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e000d71-964d-458f-b6cb-df993e706ea1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/PatientBundle/Form/ExamenType.php" afterPath="$PROJECT_DIR$/src/App/PatientBundle/Form/ExamenType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/PatientBundle/Controller/PatientController.php" afterPath="$PROJECT_DIR$/src/App/PatientBundle/Controller/PatientController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/PatientBundle/Entity/PatientRepository.php" afterPath="$PROJECT_DIR$/src/App/PatientBundle/Entity/PatientRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/UserBundle/Entity/UserRepository.php" afterPath="$PROJECT_DIR$/src/App/UserBundle/Entity/UserRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/PatientBundle/Resources/views/Patient/index.html.twig" afterPath="$PROJECT_DIR$/src/App/PatientBundle/Resources/views/Patient/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Dashboard/index.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Dashboard/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kassab.iws" />
@@ -61,8 +55,8 @@
       <file leaf-file-name="PatientController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App/PatientBundle/Controller/PatientController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.7692308">
-              <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.11612903">
+              <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
               <folding>
                 <element signature="e#48#84#0#PHP" expanded="true" />
               </folding>
@@ -138,11 +132,11 @@
         <option value="$PROJECT_DIR$/src/App/UserBundle/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/src/App/PatientBundle/Form/SearchType.php" />
         <option value="$PROJECT_DIR$/src/App/UserBundle/Entity/UserRepository.php" />
-        <option value="$PROJECT_DIR$/src/App/PatientBundle/Controller/PatientController.php" />
         <option value="$PROJECT_DIR$/src/App/UserBundle/Resources/views/User/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Dashboard/index.html.twig" />
         <option value="$PROJECT_DIR$/src/App/PatientBundle/Entity/PatientRepository.php" />
         <option value="$PROJECT_DIR$/src/App/PatientBundle/Resources/views/Patient/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/App/PatientBundle/Controller/PatientController.php" />
       </list>
     </option>
   </component>
@@ -362,7 +356,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.7837037" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7837037" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -769,8 +763,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App/PatientBundle/Controller/PatientController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.7692308">
-          <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.11612903">
+          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
           <folding>
             <element signature="e#48#84#0#PHP" expanded="true" />
           </folding>
