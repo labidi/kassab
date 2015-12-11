@@ -313,7 +313,7 @@ class Patient
 
     // ...
     /**
-     * @ORM\OneToMany(targetEntity="Examen", mappedBy="patient", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Examen", mappedBy="patient", cascade={"persist","remove"})
      */
     private $examens;
 

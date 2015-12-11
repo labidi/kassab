@@ -16,15 +16,13 @@ class PatientRepository extends \Doctrine\ORM\EntityRepository
     {
         $query =  $this->createQueryBuilder('U') ;
         foreach ($filters as $name=>$value) {
+
             switch ($name) {
                 case "nom":
                     $query->andWhere("U.nom LIKE :$name")->setParameter($name,"%$value%") ;
                     break;
                 case "prenom":
                     $query->andWhere("U.prenom LIKE :$name")->setParameter($name, "%$value%");
-                    break;
-                case "age":
-                    $query->andWhere("U.age = :$name")->setParameter($name, "%$value%");
                     break;
                 case "num_dossier":
                     $query->andWhere("U.num_dossier LIKE :$name")->setParameter($name, "%$value%");

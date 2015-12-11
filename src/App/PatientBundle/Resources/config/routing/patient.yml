@@ -28,4 +28,3 @@ app_patient_update:
 app_patient_delete:
     path:     /{id}/delete
     defaults: { _controller: "AppPatientBundle:Patient:delete" }
-    requirements: { _method: post|delete }

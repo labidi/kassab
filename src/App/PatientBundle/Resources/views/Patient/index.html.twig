@@ -11,9 +11,6 @@
             {{form_row(search_form.prenom)}}
         </div>
         <div class="col-md-3">
-            {{form_row(search_form.age)}}
-        </div>
-        <div class="col-md-3">
             {{form_row(search_form.num_dossier)}}
         </div>
         <div class="col-md-12 text-right">
@@ -40,7 +37,7 @@
                         <td><a href="{{ path('app_patient_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                         <td>{{ entity.nom }}</td>
                         <td>{{ entity.prenom }}</td>
-                        <td>{{ entity.age }}</td>
+                        <td>{{ entity.date|date("d/m/Y")}}}</td>
                         <td>{{ entity.numdossier }}</td>
                         <td>
                             <a class="glyphicon glyphicon-eye-open btn" href="{{ path('app_patient_show', { 'id': entity.id }) }}">Afficher</a>

@@ -41,6 +41,7 @@ class PatientController extends Controller
 
     private function createSearchForm($data)
     {
+
         $form = $this->createForm(new SearchType(), null, array(
             'action' => $this->generateUrl('app_patient_index'),
             'method' => 'GET',
@@ -264,21 +265,15 @@ class PatientController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('AppPatientBundle:Patient')->find($id);
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('AppPatientBundle:Patient')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Patient entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Patient entity.');
         }
 
+        $em->remove($entity);
+        $em->flush();
         return $this->redirect($this->generateUrl('app_patient_index'));
     }
 
